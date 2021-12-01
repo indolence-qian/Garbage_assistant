@@ -1,0 +1,87 @@
+{
+  "app": {
+    "bundleName": "com.indolence.garbage_assistant",
+    "vendor": "indolence",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "com.indolence.garbage_assistant",
+    "name": ".MyApplication",
+    "mainAbility": "com.indolence.garbage_assistant.MainAbility",
+    "deviceType": [
+      "phone",
+      "tablet"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "entry",
+      "moduleType": "entry",
+      "installationFree": false
+    },
+    "abilities": [
+      {
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ],
+        "name": "com.indolence.garbage_assistant.MainAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "formsEnabled": true,
+        "label": "$string:entry_MainAbility",
+        "type": "page",
+        "forms": [
+          {
+            "jsComponentName": "widget",
+            "isDefault": true,
+            "scheduledUpdateTime": "10:30",
+            "defaultDimension": "2*2",
+            "name": "widget",
+            "description": "This is a service widget",
+            "colorMode": "auto",
+            "type": "JS",
+            "supportDimensions": [
+              "2*2"
+            ],
+            "updateEnabled": true,
+            "updateDuration": 1
+          }
+        ],
+        "launchType": "standard"
+      }
+    ],
+    "js": [
+      {
+        "pages": [
+          "pages/index/index"
+        ],
+        "name": "default",
+        "window": {
+          "designWidth": 720,
+          "autoDesignWidth": true
+        }
+      },
+      {
+        "pages": [
+          "pages/index/index"
+        ],
+        "name": "widget",
+        "window": {
+          "designWidth": 720,
+          "autoDesignWidth": true
+        },
+        "type": "form"
+      }
+    ]
+  }
+}

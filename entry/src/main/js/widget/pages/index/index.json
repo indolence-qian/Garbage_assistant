@@ -1,0 +1,17 @@
+{
+  "data": {
+    "title": "TitleTitleTitleTitleTitleTitleTitleTitle",
+    "detail": "TextTextTextTextTextTextTextTextTextText",
+    "iconTitle": "Picture"
+  },
+  "actions": {
+    "routerEvent": {
+      "action": "router",
+      "bundleName": "com.indolence.garbage_assistant",
+      "abilityName": "com.indolence.garbage_assistant.widget.widget.WidgetAbility",
+      "params": {
+        "message": "add detail"
+      }
+    }
+  }
+}
