@@ -95,6 +95,7 @@ public class MainAbility extends AceAbility {
         if (formController == null) {
             return null;
         }
+
         Class<? extends AbilitySlice> clazz = formController.getRoutePageSlice(intent);
         if (clazz == null) {
             return null;
