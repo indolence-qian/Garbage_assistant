@@ -2,9 +2,9 @@ apply plugin: 'com.huawei.ohos.hap'
 apply plugin: 'com.huawei.ohos.decctest'
 //For instructions on signature configuration, see https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#ZH-CN_TOPIC_0000001154985555__section1112183053510
 ohos {
-    compileSdkVersion 5
+    compileSdkVersion 6
     defaultConfig {
-        compatibleSdkVersion 5
+        compatibleSdkVersion 6
     }
     showInServiceCenter true
     buildTypes {
@@ -15,7 +15,7 @@ ohos {
             }
         }
     }
-    
+
 }
 
 dependencies {
@@ -24,5 +24,5 @@ dependencies {
     ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.100'
 }
 decc {
-    supportType = ['html','xml']
+    supportType = ['html', 'xml']
 }
