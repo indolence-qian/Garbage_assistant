@@ -1,0 +1,37 @@
+{
+	"agcgw_all":{
+		"CN":"connect-drcn.dbankcloud.cn",
+		"CN_back":"connect-drcn.hispace.hicloud.com",
+		"DE":"connect-dre.dbankcloud.cn",
+		"DE_back":"connect-dre.hispace.hicloud.com",
+		"RU":"connect-drru.dbankcloud.cn",
+		"RU_back":"connect-drru.hispace.hicloud.com",
+		"SG":"connect-dra.dbankcloud.cn",
+		"SG_back":"connect-dra.hispace.hicloud.com"
+	},
+	"client":{
+		"cp_id":"2850086000389422904",
+		"product_id":"737518067794468349",
+		"client_id":"823032554910123200",
+		"client_secret":"[!00EA8A941CACA8C0FDADB92E69A984A44CD6EA3377EE88C9FC38EEF1A8CE71084FB2A6606329A2B74B784865535192032A0F38986E78A60D4152507F80B4B85A47BD7A9DB8A8003099842134611201AF79BA2E22485836CDC896DD5C638FB9BEAB]",
+		"project_id":"737518067794468349",
+		"app_id":"105527615",
+		"api_key":"[!0042A3344D20E5F2EF445D7906A7C3C47A0590DEAF278202B3AD465728D12E682389FCF44E496B6E35FEB526DE6922F8D76C7D90720978085DC1753CAAFD41C1D1D433550B094A56DE96EA38F1B7B37E9E450950BB8BFEC839A4150381653C2FF7278C57BD6A5707E7C292FDB9C007293A810A46333E6625BFB8DDCB2BDC1E873D]",
+		"package_name":"com.indolence.garbage_assistant"
+	},
+	"oauth_client":{
+		"client_id":"105527615",
+		"client_type":30
+	},
+	"app_info":{
+		"app_id":"823033636260424384",
+		"package_name":"com.indolence.garbage_assistant"
+	},
+	"code":{
+		"code1":"5E5B82E37B7A1CB810A71838738A6E91",
+		"code2":"A2F4EA33B793DED24C2FD95476FA0797",
+		"code3":"FC762B2C25C85EECA2BF346209DE8990",
+		"code4":"F5F303B30AAE2D6B4554292A1C65F11F"
+	},
+	"configuration_version":"3.0"
+}
