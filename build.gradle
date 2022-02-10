@@ -14,7 +14,7 @@ ohos {
             certpath file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.cer')
         }
     }
-    compileSdkVersion 7
+    compileSdkVersion 6
     defaultConfig {
         compatibleSdkVersion 5
     }
