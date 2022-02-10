@@ -68,7 +68,7 @@
         "name": "default",
         "window": {
           "designWidth": 720,
-          "autoDesignWidth": true
+          "autoDesignWidth": false
         }
       },
       {
@@ -78,7 +78,7 @@
         "name": "widget",
         "window": {
           "designWidth": 720,
-          "autoDesignWidth": true
+          "autoDesignWidth": false
         },
         "type": "form"
       }

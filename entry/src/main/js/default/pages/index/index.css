@@ -10,11 +10,37 @@
 }
 
 .login {
-    width: 1000px;
-    height: 1280px;
-    background-color: #000000;
+    width: 600px;
+    height: 1000px;
+    background-color: #FFFFFF;
     background-position: center;
+    border-radius: 50px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
 }
+
+.text1 {
+    align-self: center;
+    text-align: center;
+    font-family: "微软雅黑";
+    font-size: 80fp;
+
+
+}
+
+.account {
+    background-color: #e4f9f5;
+    placeholder-color: darkgrey;
+    color: black;
+}
+
+.password {
+    background-color: #e4f9f5;
+    placeholder-color: darkgray;
+    color: black;
+}
+
 .title {
     font-size: 40px;
     color: #000000;

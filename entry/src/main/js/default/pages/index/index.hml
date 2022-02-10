@@ -1,5 +1,7 @@
 <div class="container">
     <div class="login" >
-
+        <text class="text1" style="color: #42d3ad; ;" > 登录</text>
+        <input class="account" maxlength="20" placeholder="请输入账号" headericon="common/images/account.png" ></input>
+        <input class="password" type="password" maxlength="20" placeholder="请输入密码" headericon="common/images/password.png"></input>
     </div>
 </div>
