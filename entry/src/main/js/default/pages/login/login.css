@@ -38,7 +38,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 60px;
-    height: 520px;
+    height: 680px;
 }
 
 .account {
@@ -59,6 +59,15 @@
     color: black;
 }
 
+.email {
+    background-color: #e4f9f5;
+    placeholder-color: darkgray;
+    border: 5px solid black;
+    width: 480px;
+    height: 125px;
+    color: black;
+}
+
 .button {
     width: 540px;
     height: 125px;
@@ -67,23 +76,6 @@
     border-radius: 80px;
     font-family: HWfont;
     background-color: #dff8ee;
-}
-
-.login_2 {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 480px;
-    margin-top: 10px;
-}
-
-.text_2 {
-    font-family: HWfont;
-    color: black;
-}
-
-.text_3 {
-    font-family: HWfont;
-    color: black;
 }
 
 .title {

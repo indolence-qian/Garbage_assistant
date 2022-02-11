@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="login" >
+        <text class="text_1">注册</text>
+        <div class="login_1">
+            <input class="email" type="email" maxlength="20" placeholder="请输入邮箱" headericon="common/images/email.png"></input>
+            <input class="account" maxlength="20" placeholder="请输入账号" headericon="common/images/account.png" ></input>
+            <input class="password" type="password" maxlength="20" placeholder="请输入密码" headericon="common/images/password.png" showpasswordicon="false"></input>
+            <button class="button">注册</button>
+        </div>
+    </div>
+</div>
