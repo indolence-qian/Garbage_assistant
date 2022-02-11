@@ -1,8 +1,17 @@
+import router from '@system.router';
 export default {
     data: {
         title: ""
     },
-    onInit() {
-        this.title = this.$t('strings.world');
+    login() {
+        router.push ({
+            uri: 'pages/login/login',
+        });
+    },
+    find() {
+        router.push({
+            uri: 'pages/forget_cipher/forget_cipher'
+        })
     }
+
 }

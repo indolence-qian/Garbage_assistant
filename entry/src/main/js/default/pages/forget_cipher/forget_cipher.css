@@ -38,19 +38,44 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 60px;
-    height: 520px;
+    height: 680px;
+}
+
+.find {
+    flex-direction: row;
+    align-items: center;
+    width: 480px;
+    height: 125px;
 }
 
 .account {
     background-color: #e4f9f5;
     placeholder-color: darkgrey;
     border: 5px solid black;
+    width: 280px;
+    height: 125px;
+    color: black;
+}
+
+.email_back {
+    background-color: #e4f9f5;
+    width: 160px;
+    height: 100px;
+    text-color: black;
+    font-family: HWfont;
+    margin-left: 40px;
+}
+
+.password {
+    background-color: #e4f9f5;
+    placeholder-color: darkgray;
+    border: 5px solid black;
     width: 480px;
     height: 125px;
     color: black;
 }
 
-.password {
+.email {
     background-color: #e4f9f5;
     placeholder-color: darkgray;
     border: 5px solid black;
@@ -67,25 +92,6 @@
     border-radius: 80px;
     font-family: HWfont;
     background-color: #dff8ee;
-}
-
-.login_2 {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 480px;
-    margin-top: 20px;
-}
-
-.text_2 {
-    font-family: HWfont;
-    font-size: 20fp;
-    color: black;
-}
-
-.text_3 {
-    font-family: HWfont;
-    font-size: 20fp;
-    color: black;
 }
 
 .title {

@@ -72,7 +72,8 @@
       {
         "pages": [
           "pages/index/index",
-          "pages/login/login"
+          "pages/login/login",
+          "pages/forget_cipher/forget_cipher"
         ],
         "name": "default",
         "window": {
