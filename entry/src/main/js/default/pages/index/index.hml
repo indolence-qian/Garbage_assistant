@@ -1,7 +1,14 @@
 <div class="container">
     <div class="login" >
-        <text class="text1" style="color: #42d3ad; ;" > 登录</text>
-        <input class="account" maxlength="20" placeholder="请输入账号" headericon="common/images/account.png" ></input>
-        <input class="password" type="password" maxlength="20" placeholder="请输入密码" headericon="common/images/password.png"></input>
+        <text class="text_1">登录</text>
+        <div class="login_1">
+            <input class="account" maxlength="20" placeholder="请输入账号" headericon="common/images/account.png" ></input>
+            <input class="password" type="password" maxlength="20" placeholder="请输入密码" headericon="common/images/password.png"></input>
+            <button class="button">登录</button>
+        </div>
+        <div class="login_2">
+            <text class="text_2">注册账号</text>
+            <text class="text_3">忘记密码</text>
+        </div>
     </div>
 </div>
