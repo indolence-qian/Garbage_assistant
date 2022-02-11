@@ -1,11 +1,14 @@
 <div class="container">
     <div class="login" >
-        <text class="text_1">注册</text>
+        <text class="text_1">忘记密码</text>
         <div class="login_1">
             <input class="email" type="email" maxlength="20" placeholder="请输入邮箱" headericon="common/images/email.png"></input>
-            <input class="account" maxlength="20" placeholder="请输入账号" headericon="common/images/account.png" ></input>
+                <div class="find">
+                    <input class="account" maxlength="20" placeholder="请输入验证码" headericon="common/images/VerificationCode.png" ></input>
+                    <button class="email_back">验证码</button>
+                </div>
             <input class="password" type="password" maxlength="20" placeholder="请输入密码" headericon="common/images/password.png" showpasswordicon="false"></input>
-            <button class="button" onclick="back">注册</button>
+            <button class="button" onclick="back">确认</button>
         </div>
     </div>
 </div>
