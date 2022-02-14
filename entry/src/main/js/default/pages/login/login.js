@@ -12,7 +12,7 @@ export default {
         var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;;
         if(!reg.test(e.value))
         {
-            this.$element("id_1").showError("邮箱格式不正确，请重新输入");
+            this.$element("id_1").showError({error: "邮箱格式不正确，请重新输入"});
             this.$element("id_1").focus();
             console.info("1234567890");
         }
