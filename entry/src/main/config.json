@@ -7,8 +7,20 @@
       "name": "1.0.0"
     }
   },
-  "deviceConfig": {},
+  "deviceConfig": {
+    "default": {
+      "network": {
+        "cleartextTraffic": true
+      }
+    }
+  },
   "module": {
+    "reqPermissions": [
+      {
+        "name":"ohos.permission.INTERNET",
+        "reason": "用于网络请求"
+      }
+    ],
     "package": "com.indolence.garbage_assistant",
     "name": ".MyApplication",
     "mainAbility": "com.indolence.garbage_assistant.MainAbility",
@@ -24,6 +36,7 @@
     },
     "abilities": [
       {
+        "visible": true,
         "metaData": {
           "customizeData": [
             {
