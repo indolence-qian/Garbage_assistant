@@ -17,7 +17,7 @@
   "module": {
     "reqPermissions": [
       {
-        "name":"ohos.permission.INTERNET",
+        "name": "ohos.permission.INTERNET",
         "reason": "用于网络请求"
       }
     ],
@@ -86,7 +86,8 @@
         "pages": [
           "pages/index/index",
           "pages/login/login",
-          "pages/forget_cipher/forget_cipher"
+          "pages/forget_cipher/forget_cipher",
+          "pages/mine/mine"
         ],
         "name": "default",
         "window": {

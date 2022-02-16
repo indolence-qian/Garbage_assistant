@@ -59,6 +59,9 @@ export default {
             if(data.responseCode==200)
             {
                 prompt.showToast({message:'登录成功'});
+                router.push ({
+                    uri: 'pages/mine/mine',
+                });
             }
             else
             {
