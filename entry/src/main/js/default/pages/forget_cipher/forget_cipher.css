@@ -59,11 +59,11 @@
 
 .email_back {
     background-color: #e4f9f5;
-    width: 160px;
-    height: 100px;
+    width: 480px;
+    height: 125px;
     text-color: black;
     font-family: HWfont;
-    margin-left: 40px;
+
 }
 
 .password {
@@ -92,6 +92,16 @@
     border-radius: 80px;
     font-family: HWfont;
     background-color: #dff8ee;
+}
+
+.text_2 {
+    align-self: center;
+    text-align: center;
+    color: #42d3ad;
+    font-family: HWfont;
+    font-size: 10fp;
+    width: 480px;
+    height: 100px;
 }
 
 .title {
