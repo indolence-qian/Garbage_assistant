@@ -2,9 +2,9 @@
     <div class="login" >
         <text class="text_1">登录</text>
         <div class="login_1">
-            <input class="account" maxlength="20" placeholder="请输入账号" headericon="common/images/account.png" ></input>
-            <input class="password" type="password" maxlength="20" placeholder="请输入密码" headericon="common/images/password.png"></input>
-            <button class="button">登录</button>
+            <input class="account" onchange="get_account" maxlength="20" placeholder="请输入账号" headericon="common/images/account.png" ></input>
+            <input class="password" onchange="get_password" type="password" maxlength="20" placeholder="请输入密码" headericon="common/images/password.png"></input>
+            <button class="button" onclick="register">登录</button>
         </div>
         <div class="login_2">
             <text class="text_2" onclick="login">注册账号</text>
