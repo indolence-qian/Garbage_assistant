@@ -49,6 +49,12 @@ export default {
             if (!err) {
                 // data.result为http响应内容，可根据业务需要进行解析
                 console.info('Result:' + data.result);
+                var obj =JSON.parse(data.result);
+                this.$app.$def.data.username=obj.username;
+                this.$app.$def.data.email=obj.email;
+                this.$app.$def.data.sessionToken=obj.sessionToken;
+                this.$app.$def.data.objectId=obj.objectId;
+                console.info('sessionToken:'+obj.sessionToken);
                 console.info('code:' + data.responseCode);
                 // data.header为http响应头，可根据业务需要进行解析
                 console.info('header:' + data.header);
