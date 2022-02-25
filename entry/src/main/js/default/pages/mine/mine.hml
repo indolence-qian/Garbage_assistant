@@ -17,7 +17,7 @@
             </div>
             <div class="mine_3_1">
                 <image class="img_3" src="common/images/lock.png"></image>
-                <div class="mine_3_1_1">
+                <div class="mine_3_1_1" onclick="change_password">
                     <text class="text_4">修改密码</text>
                     <image class="img_3_1" src="common/images/more.png"></image>
                 </div>
