@@ -1,12 +1,19 @@
+import prompt from '@system.prompt';
 import router from '@system.router';
+
 export default {
     data: {
-        title: ""
+        title: "",
+        headTitle:"rrr",
+        bb:"gggg"
     },
     login() {
-        router.push ({
-            uri: 'pages/login/login',
+        prompt.showToast({
+            message: this.headTitle
         });
+        //        router.push ({
+//            uri: 'pages/login/login',
+//        });
     },
     find() {
         router.push({

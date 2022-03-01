@@ -3,7 +3,7 @@
         <text class="text_1">登录</text>
         <div class="login_1">
             <input class="account" maxlength="20" placeholder="请输入账号" headericon="common/images/account.png" ></input>
-            <input class="password" type="password" maxlength="20" placeholder="请输入密码" headericon="common/images/password.png"></input>
+            <input class="password" value="{{headTitle}}" error="{{bb}}" type="password" maxlength="20" placeholder="请输入密码" headericon="common/images/password.png"></input>
             <button class="button">登录</button>
         </div>
         <div class="login_2">
