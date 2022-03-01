@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="mine_0_1">
+        <div class="mine_1">
+            <image class="img_1"></image>
+            <div class="mine_1_1">
+                <text class="text_1">indolence</text>
+                <text class="text_2">welcome!!!</text>
+            </div>
+        </div>
+        <div class="mine_2">
+            <div class="mine_2_1">
+                <image class="img_2" src="common/images/head.png"></image>
+                <div class="mine_2_1_1">
+                    <text class="text_3">修改头像</text>
+                    <image class="img_2_1" src="common/images/more.png"></image>
+                </div>
+            </div>
+            <div class="mine_3_1">
+                <image class="img_3" src="common/images/lock.png"></image>
+                <div class="mine_3_1_1" onclick="change_password">
+                    <text class="text_4">修改密码</text>
+                    <image class="img_3_1" src="common/images/more.png"></image>
+                </div>
+            </div>
+            <div class="mine_4_1">
+                <image class="img_4" src="common/images/feedback.png"></image>
+                <div class="mine_4_1_1">
+                    <text class="text_5">反馈</text>
+                    <image class="img_4_1" src="common/images/more.png"></image>
+                </div>
+            </div>
+            <div class="mine_5_1">
+                <image class="img_5" src="common/images/updata.png"></image>
+                <div class="mine_5_1_1">
+                    <text class="text_6">升级</text>
+                    <image class="img_5_1" src="common/images/more.png"></image>
+                </div>
+            </div>
+            <div class="mine_6_1">
+                <image class="img_6" src="common/images/about.png"></image>
+                <div class="mine_6_1_1">
+                    <text class="text_7">关于</text>
+                    <image class="img_6_1" src="common/images/more.png"></image>
+                </div>
+            </div>
+            <div class="mine_7_1">
+                <image class="img_7" src="common/images/share.png"></image>
+                <div class="mine_7_1_1">
+                    <text class="text_8">分享</text>
+                    <image class="img_7_1" src="common/images/more.png"></image>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mine_0_2">
+        <image class="img_0_1" src="common/images/camera.png"></image>
+        <image class="img_0_2" src="common/images/attention.png"></image>
+        <image class="img_0_3" src="common/images/form_light.png"></image>
+        <image class="img_0_4" src="common/images/peoplefill.png"></image>
+    </div>
+</div>
+
