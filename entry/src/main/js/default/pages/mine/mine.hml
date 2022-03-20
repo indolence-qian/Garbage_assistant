@@ -3,7 +3,7 @@
         <div class="mine_1">
             <image class="img_1" onclick="change_photo"></image>
             <div class="mine_1_1">
-                <text class="text_1">indolence</text>
+                <text class="text_1">{{username}}</text>
                 <text class="text_2">welcome!!!</text>
             </div>
         </div>

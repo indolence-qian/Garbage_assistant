@@ -3,7 +3,10 @@ import document from '@ohos.document';
 import prompt from '@system.prompt';
 export default {
     data: {
-
+        username: "NULL",
+    },
+    onInit() {
+      this.username=this.$app.$def.data.username;
     },
     to_home() {
         router.push ({
