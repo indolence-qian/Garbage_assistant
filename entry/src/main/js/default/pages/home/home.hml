@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="home_1">
+        <stack class="head">
+            <image class="img_1" src="common/images/垃圾分类.png"> </image>
+            <text class="text_1">垃圾分类小助手</text>
+            <text class="text_2">垃圾分类，从我做起</text>
+        </stack>
+        <div class="home_1_1">
+            <search class="search" hint="输入想要查询的垃圾"></search>
+        </div>
+        <div class="home_1_2">
+            <text class="text_1_1">·拍照识别</text>
+            <div class="home_1_2_1">
+                <div class="home_1_2_1_1">
+                    <image class="img_1_1" src="common/images/camera.png"></image>
+                </div>
+                <image class="img_2_1" src="common/images/man-takephoto.png"></image>
+            </div>
+            <text class="text_1_2">·观察模式</text>
+            <div class="home_1_2_2">
+                <div class="home_1_2_1_2">
+                    <image class="img_1_2" src="common/images/attention.png"></image>
+                </div>
+                <image class="img_2_2" src="common/images/woman-search.png"></image>
+            </div>
+        </div>
+    </div>
+    <div class="mine_0_2">
+        <div class="mine_0_2_1">
+            <image class="img_0_1" src="common/images/form_light.png"></image>
+            <text class="text_0_1">指南</text>
+        </div>
+        <div class="mine_0_2_2">
+            <image class="img_0_2" src="common/images/home_fill_light.png"></image>
+            <text class="text_0_2">主页</text>
+        </div>
+        <div class="mine_0_2_3" onclick="to_mine">
+            <image class="img_0_3" src="common/images/people.png"></image>
+            <text class="text_0_3">我的</text>
+        </div>
+    </div>
+</div>
