@@ -19,6 +19,10 @@
       {
         "name": "ohos.permission.INTERNET",
         "reason": "用于网络请求"
+      },
+      {
+        "name": "ohos.permission.READ_USER_STORAGE",
+        "reason": "用于图片读取"
       }
     ],
     "package": "com.indolence.garbage_assistant",
@@ -35,6 +39,11 @@
       "installationFree": false
     },
     "abilities": [
+      {
+        "name": "com.indolence.garbage_assistant.DataAbility",
+        "type": "service",
+        "visible": true
+      },
       {
         "visible": true,
         "metaData": {
@@ -87,7 +96,9 @@
           "pages/index/index",
           "pages/login/login",
           "pages/forget_cipher/forget_cipher",
-          "pages/mine/mine"
+          "pages/mine/mine",
+          "pages/change_password/change_password",
+          "pages/home/home"
         ],
         "name": "default",
         "window": {

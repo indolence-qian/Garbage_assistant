@@ -55,6 +55,7 @@ export default {
                 }
             }
             );
+            prompt.showToast({message:'已发送'});
         }
         else{
             prompt.showToast({message:'邮箱不能为空'});
