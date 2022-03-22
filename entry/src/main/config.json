@@ -98,7 +98,8 @@
           "pages/forget_cipher/forget_cipher",
           "pages/mine/mine",
           "pages/change_password/change_password",
-          "pages/home/home"
+          "pages/home/home",
+          "pages/guide/guide"
         ],
         "name": "default",
         "window": {
