@@ -61,7 +61,7 @@ public class DataAbility extends Ability {
                     return false;
                 }
             }
-
+            HiLog.info(LABEL,"hahahhahahahha");
             return true;
         }
 
