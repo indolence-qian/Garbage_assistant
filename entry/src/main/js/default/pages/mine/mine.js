@@ -25,7 +25,11 @@ export default {
             uri: 'pages/change_password/change_password',
         });
     },
-    plus: async function change_photo() {
+    change_photo()
+    {
+        this.plus();
+    },
+    plus: async function () {
         var actionData = {};
         actionData.firstNum = 1024;
         actionData.secondNum = 2048;
