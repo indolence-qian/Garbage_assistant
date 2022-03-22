@@ -19,7 +19,6 @@ public class MainAbility extends AceAbility {
     @Override
     public void onStart(Intent intent) {
         PhotoAbility.register(this);
-        getWindow().setInputPanelDisplayType(WindowManager.LayoutConfig.INPUT_ADJUST_PAN);
         super.onStart(intent);
     }
 
