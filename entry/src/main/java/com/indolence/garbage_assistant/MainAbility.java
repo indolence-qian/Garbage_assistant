@@ -6,6 +6,7 @@ import com.indolence.garbage_assistant.widget.controller.FormController;
 import com.indolence.garbage_assistant.widget.controller.FormControllerManager;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.ability.ProviderFormInfo;
+import ohos.agp.window.service.WindowManager;
 import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;
 
@@ -17,11 +18,14 @@ public class MainAbility extends AceAbility {
 
     @Override
     public void onStart(Intent intent) {
+        PhotoAbility.register(this);
+        getWindow().setInputPanelDisplayType(WindowManager.LayoutConfig.INPUT_ADJUST_PAN);
         super.onStart(intent);
     }
 
     @Override
     public void onStop() {
+        PhotoAbility.unregister();
         super.onStop();
     }
 

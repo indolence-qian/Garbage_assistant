@@ -1,7 +1,7 @@
 <div class="container">
     <div class="mine_0_1">
         <div class="mine_1">
-            <image class="img_1"></image>
+            <image class="img_1" onclick="change_photo"></image>
             <div class="mine_1_1">
                 <text class="text_1">indolence</text>
                 <text class="text_2">welcome!!!</text>
@@ -53,10 +53,18 @@
         </div>
     </div>
     <div class="mine_0_2">
-        <image class="img_0_1" src="common/images/camera.png"></image>
-        <image class="img_0_2" src="common/images/attention.png"></image>
-        <image class="img_0_3" src="common/images/form_light.png"></image>
-        <image class="img_0_4" src="common/images/peoplefill.png"></image>
+        <div class="mine_0_2_1">
+            <image class="img_0_1" src="common/images/form_light.png"></image>
+            <text class="text_0_1">指南</text>
+        </div>
+        <div class="mine_0_2_2" onclick="to_home">
+            <image class="img_0_2" src="common/images/home_light.png"></image>
+            <text class="text_0_2">主页</text>
+        </div>
+        <div class="mine_0_2_3">
+            <image class="img_0_3" src="common/images/peoplefill.png"></image>
+            <text class="text_0_3">我的</text>
+        </div>
     </div>
 </div>
 

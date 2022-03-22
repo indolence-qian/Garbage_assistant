@@ -30,7 +30,6 @@ export default {
     login() {
         if(this.email1.length!=0&&this.password1.length!=0&&this.account1.length!=0)
         {
-            prompt.showToast({ message: "注册成功" });
             var httpRequest = http.createHttp();
             httpRequest.on('headerReceive', (err, data) => {
                 if (!err) {
@@ -67,6 +66,7 @@ export default {
                 }
             }
             );
+            prompt.showToast({ message: "注册成功" });
             router.back();
         }
         else{
