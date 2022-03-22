@@ -18,13 +18,11 @@ public class MainAbility extends AceAbility {
 
     @Override
     public void onStart(Intent intent) {
-        PhotoAbility.register(this);
         super.onStart(intent);
     }
 
     @Override
     public void onStop() {
-        PhotoAbility.unregister();
         super.onStop();
     }
 
