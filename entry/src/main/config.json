@@ -93,12 +93,12 @@
     "js": [
       {
         "pages": [
+          "pages/home/home",
           "pages/index/index",
           "pages/login/login",
           "pages/forget_cipher/forget_cipher",
           "pages/mine/mine",
-          "pages/change_password/change_password",
-          "pages/home/home"
+          "pages/change_password/change_password"
         ],
         "name": "default",
         "window": {
