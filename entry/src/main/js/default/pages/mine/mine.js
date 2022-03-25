@@ -16,6 +16,7 @@ export default {
       if(this.username=="未登录") this.username=this.$app.$def.data.username;
     },
     to_home() {
+        router.clear();
         router.push ({
             uri: 'pages/home/home',
         });
@@ -25,14 +26,21 @@ export default {
             uri: 'pages/change_password/change_password',
         });
     },
+    feedback() {
+      router.push({
+          uri: 'pages/feedback/feedback',
+      })
+    },
+    updata() {
+        prompt.showToast({message:"已是最新版本！"});
+    },
     change_photo()
     {
         this.plus();
     },
     plus: async function () {
         var actionData = {};
-        actionData.firstNum = 1024;
-        actionData.secondNum = 2048;
+        actionData.firstNum = "DataAbily";
         console.info("yes,good!");
         var action = {};
         action.bundleName = 'com.indolence.garbage_assistant';

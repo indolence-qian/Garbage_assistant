@@ -23,7 +23,17 @@
       {
         "name": "ohos.permission.READ_USER_STORAGE",
         "reason": "用于图片读取"
+      },
+      {
+        "name": "ohos.permission.CAMERA",
+        "reason": "相机权限"
+      },
+      {
+        "name": "ohos.permission.READ_MEDIA",
+        "reason": "读取媒体权限"
       }
+
+
     ],
     "package": "com.indolence.garbage_assistant",
     "name": ".MyApplication",
@@ -98,7 +108,8 @@
           "pages/login/login",
           "pages/forget_cipher/forget_cipher",
           "pages/mine/mine",
-          "pages/change_password/change_password"
+          "pages/change_password/change_password",
+          "pages/feedback/feedback"
         ],
         "name": "default",
         "window": {
