@@ -24,14 +24,14 @@
             </div>
             <div class="mine_4_1">
                 <image class="img_4" src="common/images/feedback.png"></image>
-                <div class="mine_4_1_1">
+                <div class="mine_4_1_1" onclick="feedback">
                     <text class="text_5">反馈</text>
                     <image class="img_4_1" src="common/images/more.png"></image>
                 </div>
             </div>
             <div class="mine_5_1">
                 <image class="img_5" src="common/images/updata.png"></image>
-                <div class="mine_5_1_1">
+                <div class="mine_5_1_1" onclick="updata">
                     <text class="text_6">升级</text>
                     <image class="img_5_1" src="common/images/more.png"></image>
                 </div>
