@@ -7,13 +7,13 @@ export default {
         password1: "",
     },
     get_account(e) {
-        this.account1=e.value;
+        this.account1 = e.value;
     },
     get_password(e) {
-        this.password1=e.value;
+        this.password1 = e.value;
     },
     login() {
-        router.push ({
+        router.push({
             uri: 'pages/login/login',
         });
     },
@@ -33,7 +33,7 @@ export default {
         });
         httpRequest.request(
         // 填写http请求的url地址，可以带参数也可以不带参数。URL地址需要开发者自定义。GET请求的参数可以在extraData中指定
-            "https://api2.bmob.cn/1/login?username="+this.account1+"&password="+this.password1,
+            "https://api2.bmob.cn/1/login?username=" + this.account1 + "&password=" + this.password1,
             {
                 method: 'GET', // 可选，默认为“GET”
                 // 开发者根据自身业务需要添加header字段
@@ -45,16 +45,16 @@ export default {
                 // 当使用POST请求时此字段用于传递内容
                 readTimeout: 60000, // 可选，默认为60000ms
                 connectTimeout: 60000 // 可选，默认为60000ms
-            },(err, data) => {
+            }, (err, data) => {
             if (!err) {
                 // data.result为http响应内容，可根据业务需要进行解析
                 console.info('Result:' + data.result);
-                var obj =JSON.parse(data.result);
-                this.$app.$def.data.username=obj.username;
-                this.$app.$def.data.email=obj.email;
-                this.$app.$def.data.sessionToken=obj.sessionToken;
-                this.$app.$def.data.objectId=obj.objectId;
-                console.info('sessionToken:'+obj.sessionToken);
+                var obj = JSON.parse(data.result);
+                this.$app.$def.data.username = obj.username;
+                this.$app.$def.data.email = obj.email;
+                this.$app.$def.data.sessionToken = obj.sessionToken;
+                this.$app.$def.data.objectId = obj.objectId;
+                console.info('sessionToken:' + obj.sessionToken);
                 console.info('code:' + data.responseCode);
                 // data.header为http响应头，可根据业务需要进行解析
                 console.info('header:' + data.header);
@@ -62,16 +62,18 @@ export default {
                 console.info('error:' + err.data);
 
             }
-            if(data.responseCode==200)
-            {
-                prompt.showToast({message:'登录成功'});
-                router.push ({
-                    uri: 'pages/mine/mine',
+            if (data.responseCode == 200) {
+                prompt.showToast({
+                    message: '登录成功'
+                });
+                router.push({
+                    uri: 'pages/home/home',
                 });
             }
-            else
-            {
-                prompt.showToast({message:'登录失败，请检查账号或密码'});
+            else {
+                prompt.showToast({
+                    message: '登录失败，请检查账号或密码'
+                });
             }
         }
         );
