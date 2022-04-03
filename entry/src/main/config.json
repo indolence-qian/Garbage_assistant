@@ -31,9 +31,16 @@
       {
         "name": "ohos.permission.READ_MEDIA",
         "reason": "读取媒体权限"
+      },
+      {
+        "name": "ohos.permission.WRITE_MEDIA"
+      },
+      {
+        "name": "ohos.permission.MEDIA_LOCATION"
+      },
+      {
+        "name": "ohos.permission.WRITE_USER_STORAGE"
       }
-
-
     ],
     "package": "com.indolence.garbage_assistant",
     "name": ".MyApplication",
@@ -75,7 +82,7 @@
           }
         ],
         "name": "com.indolence.garbage_assistant.MainAbility",
-        "icon": "$media:icon",
+        "icon": "$media:lajitong",
         "description": "$string:mainability_description",
         "formsEnabled": true,
         "label": "$string:entry_MainAbility",
@@ -103,6 +110,7 @@
     "js": [
       {
         "pages": [
+          "pages/Init/Init",
           "pages/home/home",
           "pages/index/index",
           "pages/login/login",

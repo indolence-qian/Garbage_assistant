@@ -2,6 +2,6 @@
     <div class="feedback">
         <text class="title">反馈</text>
         <textarea class="text" placeholder="请描述发现的问题" maxlength="200" showcounter="true" autofocus="true" onchange="get_text"></textarea>
-        <button class="btn">提交</button>
+        <button class="btn" onclick="feedback">提交</button>
     </div>
 </div>
