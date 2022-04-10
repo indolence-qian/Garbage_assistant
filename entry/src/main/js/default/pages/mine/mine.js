@@ -11,6 +11,7 @@ const ACTION_MESSAGE_CODE_PLUS = 1001;
 export default {
     data: {
         username: "未登录",
+        avatar:"common/images/more.png",
     },
     onInit() {
       if(this.username=="未登录") this.username=this.$app.$def.data.username;
@@ -52,7 +53,15 @@ export default {
         var result = await FeatureAbility.callAbility(action);
         var ret = JSON.parse(result);
         if (ret.code == 0) {
-            console.info('plus result is:' + JSON.stringify(ret.abilityResult));
+            //console.info('plus result is:' + JSON.stringify(ret.abilityResult));
+            //console.info('plus result is1:' +ret.abilityResult[0]);
+            //this.avatar=ret.abilityResult[0];
+            if(ret.abilityResult.length>0) {
+                this.$app.$def.data.album_array = ret.abilityResult;
+                router.push({
+                    uri: 'pages/album/album'
+                });
+            }
         } else {
             console.error('plus error code:' + JSON.stringify(ret.code));
         }

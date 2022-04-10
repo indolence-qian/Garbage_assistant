@@ -32,8 +32,6 @@
         "name": "ohos.permission.READ_MEDIA",
         "reason": "读取媒体权限"
       }
-
-
     ],
     "package": "com.indolence.garbage_assistant",
     "name": ".MyApplication",
@@ -109,7 +107,8 @@
           "pages/forget_cipher/forget_cipher",
           "pages/mine/mine",
           "pages/change_password/change_password",
-          "pages/feedback/feedback"
+          "pages/feedback/feedback",
+          "pages/album/album"
         ],
         "name": "default",
         "window": {
