@@ -117,7 +117,8 @@
           "pages/forget_cipher/forget_cipher",
           "pages/mine/mine",
           "pages/change_password/change_password",
-          "pages/feedback/feedback"
+          "pages/feedback/feedback",
+          "pages/get_camera/get_camera"
         ],
         "name": "default",
         "window": {
