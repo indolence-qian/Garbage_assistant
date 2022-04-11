@@ -118,6 +118,7 @@
           "pages/mine/mine",
           "pages/change_password/change_password",
           "pages/feedback/feedback",
+          "pages/album/album"
           "pages/get_camera/get_camera"
         ],
         "name": "default",

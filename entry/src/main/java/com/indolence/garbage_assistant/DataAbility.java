@@ -57,15 +57,22 @@ public class DataAbility extends Ability {
         public boolean onRemoteRequest(int code, MessageParcel data, MessageParcel reply, MessageOption option) {
             switch (code) {
                 case PLUS: {
+                    List<String> res = DataAbility.selectPic();
+                    Map<String, Object> result = new HashMap<>();
+                    result.put("code", SUCCESS);
+                    result.put("abilityResult", res);
+                    reply.writeString(ZSONObject.toZSONString(result));
+
+
+                    // String[] permission = {"ohos.permission.READ_USER_STORAGE"};
+                    //MainAbility.mActivity.requestPermissionsFromUser(permission, 0);
+                  //  Intent intent = new Intent();
+                   // Operation opt=new Intent.OperationBuilder().withAction("android.intent.action.GET_CONTENT").build();
+                    //intent.setOperation(opt);
+                   // intent.addFlags(Intent.FLAG_NOT_OHOS_COMPONENT);
+                   // intent.setType("image/*");
+                    //startAbilityForResult(intent,imgRequestCode);
                     //DataAbility.selectPic();
-                    String[] permission = {"ohos.permission.READ_USER_STORAGE"};
-                    MainAbility.mActivity.requestPermissionsFromUser(permission, 0);
-                    Intent intent = new Intent();
-                    Operation opt=new Intent.OperationBuilder().withAction("android.intent.action.GET_CONTENT").build();
-                    intent.setOperation(opt);
-                    intent.addFlags(Intent.FLAG_NOT_OHOS_COMPONENT);
-                    intent.setType("image/*");
-                    startAbilityForResult(intent, imgRequestCode);
                     break;
                 }
                 default: {

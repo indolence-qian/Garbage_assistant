@@ -3,7 +3,8 @@ export default {
         username: "",
         email: "",
         sessionToken: "",
-        objectId: ""
+        objectId: "",
+        album_array:[],
     },
     onCreate() {
         console.info('AceApplication onCreate');
