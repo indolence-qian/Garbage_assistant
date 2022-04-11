@@ -6,6 +6,8 @@ import ohos.aafwk.ability.DataAbilityHelper;
 import ohos.aafwk.ability.DataAbilityRemoteException;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
+import ohos.agp.components.ComponentProvider;
+import ohos.agp.components.Image;
 import ohos.app.Context;
 import ohos.data.dataability.DataAbilityPredicates;
 import ohos.data.resultset.ResultSet;
@@ -30,7 +32,8 @@ import java.util.List;
 import java.util.Map;
 
 public class DataAbility extends Ability {
-
+    private static final int imgRequestCode = 101;
+    Image photo ;
     // 定义日志标签
     private static final HiLogLabel LABEL = new HiLogLabel(HiLog.LOG_APP, 0, "MY_TAG");
 
@@ -45,7 +48,7 @@ public class DataAbility extends Ability {
         private static final int SUCCESS = 0;
         private static final int ERROR = 1;
         private static final int PLUS = 1001;
-        private static final int imgRequestCode = 101;
+
         MyRemote() {
             super("MyService_MyRemote");
         }
@@ -69,6 +72,7 @@ public class DataAbility extends Ability {
                    // intent.addFlags(Intent.FLAG_NOT_OHOS_COMPONENT);
                    // intent.setType("image/*");
                     //startAbilityForResult(intent,imgRequestCode);
+                    //DataAbility.selectPic();
                     break;
                 }
                 default: {
@@ -78,7 +82,7 @@ public class DataAbility extends Ability {
                     return false;
                 }
             }
-            HiLog.info(LABEL,"hahahhahahahha");
+
             return true;
         }
 
@@ -118,25 +122,22 @@ public class DataAbility extends Ability {
         return imgUrlList;
 
     }
+    /*选择图片回调*/
     @Override
     protected void onAbilityResult(int requestCode, int resultCode, Intent resultData) {
-        if(requestCode==101)
+        if(requestCode==imgRequestCode && resultData!=null)
         {
-            HiLog.info(LABEL,"选择图片getUriString:"+resultData.getUriString());
             //选择的Img对应的Uri
             String chooseImgUri=resultData.getUriString();
-            HiLog.info(LABEL,"选择图片getScheme:"+chooseImgUri.substring(chooseImgUri.lastIndexOf('/')));
-
             //定义数据能力帮助对象
             DataAbilityHelper helper=DataAbilityHelper.creator(getContext());
             //定义图片来源对象
             ImageSource imageSource = null;
             //获取选择的Img对应的Id
             String chooseImgId=null;
-            //如果是选择文件则getUriString结果为content://com.android.providers.media.documents/document/image%3A30，其中%3A是":"的URL编码结果，后面的数字就是image对应的Id
-            //如果选择的是图库则getUriString结果为content://media/external/images/media/30，最后就是image对应的Id
+            //如果是选择文件则getUriString结果为dataability:///com.android.providers.media.documents/document/image%3A437，其中%3A437是":"的URL编码结果，后面的数字就是image对应的Id
+            //如果选择的是图库则getUriString结果为dataability:///media/external/images/media/262，最后就是image对应的Id
             //这里需要判断是选择了文件还是图库
-            HiLog.info(LABEL,"kykykykyky");
             if(chooseImgUri.lastIndexOf("%3A")!=-1){
                 chooseImgId = chooseImgUri.substring(chooseImgUri.lastIndexOf("%3A")+3);
             }
@@ -145,7 +146,6 @@ public class DataAbility extends Ability {
             }
             //获取图片对应的uri，由于获取到的前缀是content，我们替换成对应的dataability前缀
             Uri uri=Uri.appendEncodedPathToUri(AVStorage.Images.Media.EXTERNAL_DATA_ABILITY_URI,chooseImgId);
-            HiLog.info(LABEL,"选择图片dataability路径:"+uri.toString());
             try {
                 //读取图片
                 FileDescriptor fd = helper.openFile(uri, "r");
@@ -153,7 +153,7 @@ public class DataAbility extends Ability {
                 //创建位图
                 PixelMap pixelMap = imageSource.createPixelmap(null);
                 //设置图片控件对应的位图
-
+                photo.setPixelMap(pixelMap);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {

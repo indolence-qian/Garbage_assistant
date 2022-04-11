@@ -4,18 +4,15 @@ export default {
     data: {
         title: 'World'
     },
-    onShow() {
-        this.title=this.$app.$def.data.username;
-        if(this.title.length==0) {
-            router.push({
-                uri: 'pages/index/index',
-            });
-        }
-    },
     to_mine() {
         router.clear();
         router.push ({
             uri: 'pages/mine/mine',
         });
+    },
+    take_photo() {
+        router.push ({
+            uri: 'pages/get_camera/get_camera',
+        })
     }
 }
