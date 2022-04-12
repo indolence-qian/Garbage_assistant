@@ -2,7 +2,8 @@ import router from '@system.router';
 import prompt from '@system.prompt';
 export default {
     data: {
-        title: 'World'
+        title: 'World',
+        text: ""
     },
     to_mine() {
         router.clear();
@@ -13,6 +14,17 @@ export default {
     take_photo() {
         router.push ({
             uri: 'pages/get_camera/get_camera',
+        })
+    },
+    input(e) {
+        this.text=e.value;
+    },
+    search(e) {
+        router.push ({
+            uri: 'pages/text_search/text_search',
+            params:{
+                query_text: this.text,
+            }
         })
     }
 }
