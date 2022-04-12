@@ -118,8 +118,10 @@
           "pages/mine/mine",
           "pages/change_password/change_password",
           "pages/feedback/feedback",
-          "pages/album/album"
-          "pages/get_camera/get_camera"
+          "pages/album/album",
+          "pages/get_camera/get_camera",
+          "pages/about/about",
+          "pages/text_search/text_search"
         ],
         "name": "default",
         "window": {

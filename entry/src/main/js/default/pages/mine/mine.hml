@@ -10,7 +10,7 @@
         <div class="mine_2">
             <div class="mine_2_1">
                 <image class="img_2" src="common/images/head.png"></image>
-                <div class="mine_2_1_1">
+                <div class="mine_2_1_1" onclick="change_photo">
                     <text class="text_3">修改头像</text>
                     <image class="img_2_1" src="common/images/more.png"></image>
                 </div>
@@ -38,14 +38,14 @@
             </div>
             <div class="mine_6_1">
                 <image class="img_6" src="common/images/about.png"></image>
-                <div class="mine_6_1_1">
+                <div class="mine_6_1_1" onclick="about">
                     <text class="text_7">关于</text>
                     <image class="img_6_1" src="common/images/more.png"></image>
                 </div>
             </div>
             <div class="mine_7_1">
                 <image class="img_7" src="common/images/share.png"></image>
-                <div class="mine_7_1_1">
+                <div class="mine_7_1_1" onclick="share">
                     <text class="text_8">分享</text>
                     <image class="img_7_1" src="common/images/more.png"></image>
                 </div>

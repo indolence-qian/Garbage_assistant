@@ -1,0 +1,19 @@
+<div class="container">
+    <stack class="head">
+        <image class="img_1" src="common/images/垃圾分类.png"> </image>
+        <text class="text_1">垃圾分类小助手</text>
+        <text class="text_2">垃圾分类，从我做起</text>
+    </stack>
+    <div class="div_1">
+        <text class="text_3">{{ query_text }}</text>
+        <text class="text_4">识别结果</text>
+        <div class="div_2">
+            <text class="text_5">{{ cate_name }}</text>
+            <image class="img_2" src="{{ uri }}"></image>
+        </div>
+        <text class="text_6">投放建议</text>
+        <div class="div_3">
+            <text class="text_7">{{ps}}</text>
+        </div>
+    </div>
+</div>

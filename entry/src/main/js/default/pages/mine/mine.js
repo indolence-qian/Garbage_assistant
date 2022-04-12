@@ -1,3 +1,4 @@
+import pasteboard from '@ohos.pasteboard';
 import router from '@system.router';
 import document from '@ohos.document';
 import prompt from '@system.prompt';
@@ -11,9 +12,10 @@ const ACTION_MESSAGE_CODE_PLUS = 1001;
 export default {
     data: {
         username: "未登录",
-        avatar:"common/images/more.png",
+        avatar: "",
     },
     onInit() {
+        this.avatar=this.$app.$def.data.photo;
       if(this.username=="未登录") this.username=this.$app.$def.data.username;
     },
     to_home() {
@@ -65,5 +67,22 @@ export default {
         } else {
             console.error('plus error code:' + JSON.stringify(ret.code));
         }
+    },
+    share() {
+        var pasteData = pasteboard.createPlainTextData("https://github.com/indolence-qian/Garbage_assistant");
+        var systemPasteboard = pasteboard.getSystemPasteboard();
+        systemPasteboard.setPasteData(pasteData).then((data) => {
+            console.info('setPasteData success.');
+            prompt.showToast({
+                message:"内容已复制到剪切板，去浏览器粘贴浏览吧！",
+            })
+        }).catch((error) => {
+            console.error('Failed to setPasteData. Cause: ' + error.message);
+        });
+    },
+    about() {
+        router.push ({
+            uri: 'pages/about/about',
+        });
     }
 }
