@@ -1,8 +1,8 @@
 <stack class="container">
-    <camera class="camera"/>
+    <camera class="camera" flash="{{ flash }}" deviceposition="{{ direction }}" id="cameraapp"/>
     <div class="div">
-        <image class="flashlight" src="common/images/flashlight.png">flashlight</image>
-        <image class="shoot" src="common/images/camera.png">shoot</image>
-        <image class="reverse" src="common/images/reverse.png">reverse</image>
+        <image class="flashlight" src="common/images/Flashlight.png" onclick="flashlight">flashlight</image>
+        <image class="shoot" src="common/images/camera.png" onclick="shoot">shoot</image>
+        <image class="reverse" src="common/images/reverse.png" onclick="reverse">reverse</image>
     </div>
 </stack>
