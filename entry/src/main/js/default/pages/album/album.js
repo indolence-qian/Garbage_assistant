@@ -25,15 +25,6 @@ export default {
     {
         console.log("call uri   "+this.uri);
         if(this.uri.length!=0){
-            file.readArrayBuffer({
-                uri: this.uri,
-                success: function(data) {
-                    console.log('call readArrayBuffer success: ' + data.buffer);
-                },
-                fail: function(data, code) {
-                    console.error('call fail callback fail, code: ' + code + ', data: ' + data);
-                },
-            });
             this.$app.$def.data.photo=this.uri;
             router.clear();
             router.push({

@@ -1,3 +1,4 @@
+import file from '@system.file';
 import router from '@system.router';
 import prompt from '@system.prompt';
 import http from '@ohos.net.http';

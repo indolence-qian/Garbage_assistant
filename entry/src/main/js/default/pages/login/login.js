@@ -2,6 +2,7 @@
 import router from '@system.router';
 import http from '@ohos.net.http';
 import prompt from '@system.prompt';
+var img=new Image();
 export default {
     data: {
         title: "",
@@ -50,7 +51,7 @@ export default {
                         'X-Bmob-REST-API-Key': '9702909da94801b56e9d488842516bb3'
                     },
                     // 当使用POST请求时此字段用于传递内容
-                    extraData: { "username": this.account1, "password": this.password1, "email": this.email1},
+                    extraData: { "username": this.account1, "password": this.password1, "email": this.email1 },
                     readTimeout: 60000, // 可选，默认为60000ms
                     connectTimeout: 60000 // 可选，默认为60000ms
                 },(err, data) => {
@@ -61,13 +62,17 @@ export default {
                     console.info('code:' + data.responseCode);
                     // data.header为http响应头，可根据业务需要进行解析
                     console.info('header:' + data.header);
+                    var obj=JSON.parse(data.result);
+                    if(obj.code==203) prompt.showToast({message:"该邮箱已被注册，请重新注册"});
+                    else {
+                        prompt.showToast({ message: "注册成功" });
+                        router.back();
+                    }
                 } else {
                     console.info('error:' + err.data);
                 }
             }
             );
-            prompt.showToast({ message: "注册成功" });
-            router.back();
         }
         else{
             prompt.showToast({ message: "输入不能为空" });
