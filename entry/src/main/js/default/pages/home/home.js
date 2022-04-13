@@ -17,5 +17,10 @@ export default {
         router.push ({
             uri: 'pages/mine/mine',
         });
+    },
+    to_guide() {
+        router.push ({
+            uri: 'pages/guide/guide',
+        });
     }
 }

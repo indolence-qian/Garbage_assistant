@@ -20,6 +20,11 @@ export default {
             uri: 'pages/home/home',
         });
     },
+    to_guide() {
+        router.push ({
+            uri: 'pages/guide/guide',
+        });
+    },
     change_password() {
         router.push ({
             uri: 'pages/change_password/change_password',
