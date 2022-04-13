@@ -117,6 +117,7 @@
           "pages/forget_cipher/forget_cipher",
           "pages/mine/mine",
           "pages/change_password/change_password",
+          "pages/guide/guide",
           "pages/feedback/feedback",
           "pages/album/album",
           "pages/get_camera/get_camera",

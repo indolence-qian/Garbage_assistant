@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="mine_0_2">
-        <div class="mine_0_2_1">
+        <div class="mine_0_2_1" onclick="to_guide">
             <image class="img_0_1" src="common/images/form_light.png"></image>
             <text class="text_0_1">指南</text>
         </div>

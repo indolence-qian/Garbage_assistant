@@ -10,8 +10,8 @@ ohos {
             keyAlias = 'debugKey'
             keyPassword '0000001883D5D31700DA533B8164B5DAB547307C2E3011C25C47523D748278C7CF26177366A55AD2'
             signAlg = 'SHA256withECDSA'
-            profile file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p7b')
-            certpath file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.cer')
+            profile file('C:\\Users\\10719\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p7b')
+            certpath file('C:\\Users\\10719\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.cer')
         }
     }
     compileSdkVersion 6
