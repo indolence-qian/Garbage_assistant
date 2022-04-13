@@ -6,13 +6,13 @@
             <text class="text_2">垃圾分类，从我做起</text>
         </stack>
         <div class="home_1_1">
-            <search class="search" hint="输入想要查询的垃圾"></search>
+            <search class="search" hint="输入想要查询的垃圾" onchange="input" onsubmit="search"></search>
         </div>
         <div class="home_1_2">
             <text class="text_1_1">·拍照识别</text>
             <div class="home_1_2_1">
-                <div class="home_1_2_1_1">
-                    <image class="img_1_1" src="common/images/camera.png"></image>
+                <div class="home_1_2_1_1" onclick="take_photo">
+                    <image class="img_1_1" src="common/images/xiangji.png"></image>
                 </div>
                 <image class="img_2_1" src="common/images/man-takephoto.png"></image>
             </div>

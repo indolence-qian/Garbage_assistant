@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="feedback">
+        <text class="title" onclick="about">关于</text>
+        <div class="div">
+            <text class="text">{{ text }}</text>
+            <text class="text2">{{ text5 }}</text>
+            <text class="text3">{{ text3 }}</text>
+        </div>
+        <button class="btn" onclick="back">返回</button>
+    </div>
+</div>

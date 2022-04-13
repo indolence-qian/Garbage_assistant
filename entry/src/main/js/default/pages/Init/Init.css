@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition-enter: fade_in;
+    transition-exit: fade_out;
+    background-color: aliceblue;
+}
+
+@keyframes fade_in {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@keyframes fade_out{
+    from{opacity:1}
+    to{opacity:0}
+}
+
+@font-face {
+    font-family: HWfont;
+    src: url("/common/华文新魏.ttf");
+}
+
+.div {
+    margin-top: 400px;
+    height: 400px;
+    width: 400px;
+    background-color: aquamarine;
+    border-radius: 80px 80px 80px 80px;
+}
+
+
+.img {
+    height: 400px;
+    width: 400px;
+}
+
+.text {
+    margin-top: 60px;
+    font-family: HWfont;
+    font-size: 32fp;
+    color: black;
+}

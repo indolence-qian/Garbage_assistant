@@ -1,3 +1,4 @@
+import pasteboard from '@ohos.pasteboard';
 import router from '@system.router';
 import document from '@ohos.document';
 import prompt from '@system.prompt';
@@ -11,11 +12,14 @@ const ACTION_MESSAGE_CODE_PLUS = 1001;
 export default {
     data: {
         username: "未登录",
+        avatar: "",
     },
     onInit() {
+        this.avatar=this.$app.$def.data.photo;
       if(this.username=="未登录") this.username=this.$app.$def.data.username;
     },
     to_home() {
+        router.clear();
         router.push ({
             uri: 'pages/home/home',
         });
@@ -30,14 +34,21 @@ export default {
             uri: 'pages/change_password/change_password',
         });
     },
+    feedback() {
+      router.push({
+          uri: 'pages/feedback/feedback',
+      })
+    },
+    updata() {
+        prompt.showToast({message:"已是最新版本！"});
+    },
     change_photo()
     {
         this.plus();
     },
     plus: async function () {
         var actionData = {};
-        actionData.firstNum = 1024;
-        actionData.secondNum = 2048;
+        actionData.firstNum = "DataAbily";
         console.info("yes,good!");
         var action = {};
         action.bundleName = 'com.indolence.garbage_assistant';
@@ -49,9 +60,34 @@ export default {
         var result = await FeatureAbility.callAbility(action);
         var ret = JSON.parse(result);
         if (ret.code == 0) {
-            console.info('plus result is:' + JSON.stringify(ret.abilityResult));
+            //console.info('plus result is:' + JSON.stringify(ret.abilityResult));
+            //console.info('plus result is1:' +ret.abilityResult[0]);
+            //this.avatar=ret.abilityResult[0];
+            if(ret.abilityResult.length>0) {
+                this.$app.$def.data.album_array = ret.abilityResult;
+                router.push({
+                    uri: 'pages/album/album'
+                });
+            }
         } else {
             console.error('plus error code:' + JSON.stringify(ret.code));
         }
+    },
+    share() {
+        var pasteData = pasteboard.createPlainTextData("https://github.com/indolence-qian/Garbage_assistant");
+        var systemPasteboard = pasteboard.getSystemPasteboard();
+        systemPasteboard.setPasteData(pasteData).then((data) => {
+            console.info('setPasteData success.');
+            prompt.showToast({
+                message:"内容已复制到剪切板，去浏览器粘贴浏览吧！",
+            })
+        }).catch((error) => {
+            console.error('Failed to setPasteData. Cause: ' + error.message);
+        });
+    },
+    about() {
+        router.push ({
+            uri: 'pages/about/about',
+        });
     }
 }

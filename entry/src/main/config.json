@@ -23,6 +23,23 @@
       {
         "name": "ohos.permission.READ_USER_STORAGE",
         "reason": "用于图片读取"
+      },
+      {
+        "name": "ohos.permission.CAMERA",
+        "reason": "相机权限"
+      },
+      {
+        "name": "ohos.permission.READ_MEDIA",
+        "reason": "读取媒体权限"
+      },
+      {
+        "name": "ohos.permission.WRITE_MEDIA"
+      },
+      {
+        "name": "ohos.permission.MEDIA_LOCATION"
+      },
+      {
+        "name": "ohos.permission.WRITE_USER_STORAGE"
       }
     ],
     "package": "com.indolence.garbage_assistant",
@@ -65,7 +82,7 @@
           }
         ],
         "name": "com.indolence.garbage_assistant.MainAbility",
-        "icon": "$media:icon",
+        "icon": "$media:lajitong",
         "description": "$string:mainability_description",
         "formsEnabled": true,
         "label": "$string:entry_MainAbility",
@@ -93,13 +110,19 @@
     "js": [
       {
         "pages": [
+          "pages/Init/Init",
+          "pages/home/home",
           "pages/index/index",
           "pages/login/login",
           "pages/forget_cipher/forget_cipher",
           "pages/mine/mine",
           "pages/change_password/change_password",
-          "pages/home/home",
-          "pages/guide/guide"
+          "pages/guide/guide",
+          "pages/feedback/feedback",
+          "pages/album/album",
+          "pages/get_camera/get_camera",
+          "pages/about/about",
+          "pages/text_search/text_search"
         ],
         "name": "default",
         "window": {

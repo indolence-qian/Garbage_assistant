@@ -1,5 +1,6 @@
 package com.indolence.garbage_assistant;
 
+import ohos.aafwk.ability.Ability;
 import ohos.ace.ability.AceAbility;
 import ohos.aafwk.content.Intent;
 import com.indolence.garbage_assistant.widget.controller.FormController;
@@ -15,10 +16,13 @@ public class MainAbility extends AceAbility {
     private static final int INVALID_FORM_ID = -1;
     private static final HiLogLabel TAG = new HiLogLabel(HiLog.DEBUG, 0x0, MainAbility.class.getName());
     private String topWidgetSlice;
+    public static Ability mActivity;
 
     @Override
     public void onStart(Intent intent) {
+        getWindow().addFlags(WindowManager.LayoutConfig.MARK_TRANSLUCENT_STATUS);
         super.onStart(intent);
+        mActivity=this;
     }
 
     @Override

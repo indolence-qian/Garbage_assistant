@@ -5,10 +5,10 @@ apply plugin: 'com.huawei.ohos.app'
 ohos {
     signingConfigs {
         debug {
-            storeFile file('C:\\Users\\10719\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p12')
-            storePassword '00000018ABB13D094B151013BA4AA5BE17190836E315CD05C924D5777446D58420AF6331293B4A79'
+            storeFile file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p12')
+            storePassword '000000185989666E03036DD7B7EB5CE2E18CB6B9E7AF7839744E587A921DACC78AAD07D27EF3CA66'
             keyAlias = 'debugKey'
-            keyPassword '000000186406F648907143AFA6573867542CB57C67EA236195293AF5DB5037F2EFE6394132FB3244'
+            keyPassword '0000001883D5D31700DA533B8164B5DAB547307C2E3011C25C47523D748278C7CF26177366A55AD2'
             signAlg = 'SHA256withECDSA'
             profile file('C:\\Users\\10719\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p7b')
             certpath file('C:\\Users\\10719\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.cer')
@@ -52,8 +52,6 @@ allprojects {
         maven {
             url 'https://developer.huawei.com/repo/'
         }
-        jcenter()
-        maven { url 'https://developer.huawei.com/repo/' }
     }
 }
 apply plugin: 'com.huawei.agconnect'

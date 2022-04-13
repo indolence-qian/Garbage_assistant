@@ -1,0 +1,11 @@
+<div class="container">
+    <list class="album_list">
+        <list-item for="{{album_array}}" class="album_listItem">
+            <stack>
+                <image class="album_img" src="{{$item.img}}"></image>
+                <input type="radio" checked="{{$item.choose}}" name="album" onchange="select" value="{{$item.img}}"></input>
+            </stack>
+        </list-item>
+    </list>
+    <button onclick="confirm" class="button">确定</button>
+</div>
