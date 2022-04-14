@@ -1,9 +1,13 @@
+import router from '@system.router';
+import http from '@ohos.net.http';
+import mediaLibrary from '@ohos.multimedia.mediaLibrary';
+import md5 from 'blueimp-md5'
 export default {
     data: {
         title: 'World',
         flash: "off",
         direction: "back",
-        uri: ""
+        photoUri: ""
     },
     flashlight() {
         if(this.flash=="off"){
@@ -23,13 +27,35 @@ export default {
     },
     shoot() {
         console.info("camera success!");
-        this.$element('cameraapp').takePhoto({
+        this.$element('cameraApp').takePhoto({
             quality: "normal",
-            success: function (data) {
-                console.info("success :  "+data);
+            success: (res) => {
+                console.info("  hahaha     " + res.uri);
+                this.photoUri = res.uri;
+                let option = {
+                    src: this.photoUri,
+                    mimeType: "image/jpeg",
+                    relativePath: "imageDir/image2/"
+                };
+
+                mediaLibrary.getMediaLibrary().storeMediaAsset(option).then((value) => {
+                    console.info("Media resources stored."+value);
+                    // Obtain the URI that stores media resources.
+                    router.push({
+                        uri: 'pages/result/result',
+                        params: {
+                            uri: value,
+                        }
+                    })
+                }).catch((err) => {
+                    console.info("An error occurred when storing media resources.");
+                });
+                console.info("success!");
+
             },
-            fail: function (data) {
-                console.info("fail : "+data);
+
+            fail: (erromsg, errocode) => {
+                console.log('media.takePhoto----------' + errocode + ': ' + erromsg)
             }
         })
     }

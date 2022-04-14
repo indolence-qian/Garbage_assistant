@@ -48,6 +48,7 @@ public class DataAbility extends Ability {
         private static final int SUCCESS = 0;
         private static final int ERROR = 1;
         private static final int PLUS = 1001;
+        private static final int PUSH = 10001;
 
         MyRemote() {
             super("MyService_MyRemote");
@@ -74,6 +75,9 @@ public class DataAbility extends Ability {
                     //startAbilityForResult(intent,imgRequestCode);
                     //DataAbility.selectPic();
                     break;
+                }
+                case PUSH: {
+
                 }
                 default: {
                     Map<String, Object> result = new HashMap<String, Object>();

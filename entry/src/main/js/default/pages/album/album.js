@@ -20,6 +20,7 @@ export default {
     select(e)
     {
         this.uri=e.value;
+        prompt.showToast({message:this.uri});
     },
     confirm()
     {
