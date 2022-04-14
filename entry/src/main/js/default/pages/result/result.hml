@@ -1,0 +1,4 @@
+<div class="container">
+    <image class="img_1" src="{{uri}}"> 
+    </image>
+</div>

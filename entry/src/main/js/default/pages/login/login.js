@@ -2,7 +2,14 @@
 import router from '@system.router';
 import http from '@ohos.net.http';
 import prompt from '@system.prompt';
+import request from '@ohos.request';
 var img=new Image();
+const ABILITY_TYPE_EXTERNAL = 0;
+const ABILITY_TYPE_INTERNAL = 1;
+// syncOption(Optional, default sync): 0-Sync; 1-Async
+const ACTION_SYNC = 0;
+const ACTION_ASYNC = 1;
+const ACTION_MESSAGE_CODE_PLUS = 1001;
 export default {
     data: {
         title: "",
@@ -77,5 +84,22 @@ export default {
         else{
             prompt.showToast({ message: "输入不能为空" });
         }
-    }
+    },
+    plus: async function () {
+        var actionData = "internal://cache/photo.jpg";
+        var action = {};
+        action.bundleName = 'com.indolence.garbage_assistant';
+        action.abilityName = 'com.indolence.garbage_assistant.DataAbility';
+        action.messageCode = 10001;
+        action.data=actionData;
+        action.abilityType = ABILITY_TYPE_EXTERNAL;
+        action.syncOption = ACTION_SYNC;
+        var result = await FeatureAbility.callAbility(action);
+        var ret = JSON.parse(result);
+        if (ret.code == 0) {
+            console.info('plus result is:' + JSON.stringify(ret.abilityResult));
+        } else {
+            console.error('plus error code:' + JSON.stringify(ret.code));
+        }
+    },
 }

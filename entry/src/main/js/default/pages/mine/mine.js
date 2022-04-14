@@ -47,14 +47,10 @@ export default {
         this.plus();
     },
     plus: async function () {
-        var actionData = {};
-        actionData.firstNum = "DataAbily";
-        console.info("yes,good!");
         var action = {};
         action.bundleName = 'com.indolence.garbage_assistant';
         action.abilityName = 'com.indolence.garbage_assistant.DataAbility';
         action.messageCode = ACTION_MESSAGE_CODE_PLUS;
-        action.data = actionData;
         action.abilityType = ABILITY_TYPE_EXTERNAL;
         action.syncOption = ACTION_SYNC;
         var result = await FeatureAbility.callAbility(action);

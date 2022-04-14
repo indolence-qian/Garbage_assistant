@@ -3,9 +3,6 @@ export default {
     data: {
         title: 'World',
     },
-    onInit() {
-        this.username=this.$app.$def.data.username;
-    },
     to_home() {
         router.push ({
             uri: 'pages/home/home',

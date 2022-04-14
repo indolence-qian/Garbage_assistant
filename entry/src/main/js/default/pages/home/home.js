@@ -12,9 +12,10 @@ export default {
         });
     },
     to_guide() {
-        router.push ({
+        router.push({
             uri: 'pages/guide/guide',
-        }),
+        });
+    },
     take_photo() {
         router.push ({
             uri: 'pages/get_camera/get_camera',
