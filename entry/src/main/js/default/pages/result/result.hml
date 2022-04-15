@@ -1,4 +1,17 @@
 <div class="container">
-    <image class="img_1" src="{{uri}}"> 
-    </image>
+    <image class="img_1" src="{{uri}}" onclick="plus"></image>
+    <div class="div_1">
+        <text class="text_4">识别结果</text>
+        <div class="div_2">
+            <div class="div_0">
+                <text class="text_5">{{ cate_name }}</text>
+                <image class="img_2" src="{{ photo_uri }}"></image>
+            </div>
+            <text class="text_0">准确率:{{confidence }}</text>
+        </div>
+        <text class="text_6">投放建议</text>
+        <div class="div_3">
+            <text class="text_7">{{ps}}</text>
+        </div>
+    </div>
 </div>

@@ -23,6 +23,12 @@
     src: url("/common/华文新魏.ttf");
 }
 
+.title{
+    height: 80px;
+    width: 100%;
+    background-color: #42d3ad;
+}
+
 .img_title{
     height: 8%;
 }

@@ -53,7 +53,6 @@ export default {
                 console.info("success!");
 
             },
-
             fail: (erromsg, errocode) => {
                 console.log('media.takePhoto----------' + errocode + ': ' + erromsg)
             }

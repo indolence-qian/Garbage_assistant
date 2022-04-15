@@ -14,15 +14,15 @@
                 <div class="home_1_2_1_1" onclick="take_photo">
                     <image class="img_1_1" src="common/images/xiangji.png"></image>
                 </div>
-                <image class="img_2_1" src="common/images/man-takephoto.png"></image>
+<!--                <image class="img_2_1" src="common/images/man-takephoto.png"></image>-->
             </div>
-            <text class="text_1_2">·观察模式</text>
-            <div class="home_1_2_2">
-                <div class="home_1_2_1_2">
-                    <image class="img_1_2" src="common/images/attention.png"></image>
-                </div>
-                <image class="img_2_2" src="common/images/woman-search.png"></image>
-            </div>
+            <text class="text_1_2" style="opacity: 0;">·观察模式</text>
+            <image class="home_1_2_2" src="common/images/man-takephoto.png">
+<!--                <div class="home_1_2_1_2">-->
+<!--                    <image class="img_1_2" src="common/images/attention.png"></image>-->
+<!--                </div>-->
+<!--                <image class="img_2_2" src="common/images/woman-search.png"></image>-->
+            </image>
         </div>
     </div>
     <div class="mine_0_2">
