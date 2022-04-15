@@ -42,6 +42,9 @@ buildscript {
 dependencies {
     // Add dependencies.
     implementation 'com.huawei.agconnect:agconnect-core-harmony:1.0.0.300'
+    implementation group: 'org.json', name: 'json', version: '20211205'
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.79'
 }
 
 allprojects {

@@ -2,14 +2,29 @@
 import md5 from 'blueimp-md5';
 import http from '@ohos.net.http';
 import prompt from '@system.prompt';
+// abilityType: 0-Ability; 1-Internal Ability
+const ABILITY_TYPE_EXTERNAL = 0;
+const ABILITY_TYPE_INTERNAL = 1;
+// syncOption(Optional, default sync): 0-Sync; 1-Async
+const ACTION_SYNC = 0;
+const ACTION_ASYNC = 1;
+var garbage2="有害垃圾";
+var garbage3="湿垃圾";
+var garbage4="干垃圾";
+const ACTION_MESSAGE_CODE_BASE = 64;
 export default {
     data: {
         uri: "",
         cate_name: "可回收物",
         ps: "参考样例",
-        confidence: "1",
+        photo_uri: "common/images/garbage_1.png",
+        confidence: 0,
     },
     onInit() {
+
+        this.plus();
+        /*
+        this.plus();
         console.info("Base64:  "+this.uri);
         const Base=require('js-base64');
         var imageBuf=Base.encodeURI(this.uri);
@@ -61,5 +76,44 @@ export default {
             }
         }
         );
-    }
+        */
+    },
+    plus: async function () {
+        console.info("hahahha  "+this.uri);
+        var actionData = this.uri;
+        var action = {};
+        action.bundleName = 'com.indolence.garbage_assistant';
+        action.abilityName = 'com.indolence.garbage_assistant.DataAbility';
+        action.messageCode = ACTION_MESSAGE_CODE_BASE;
+        action.data=actionData;
+        action.abilityType = ABILITY_TYPE_EXTERNAL;
+        action.syncOption = ACTION_SYNC;
+        var result = await FeatureAbility.callAbility(action);
+        console.info("yes!!!   "+result);
+        var ret = JSON.parse(result);
+        if (ret.code == 10000) {
+            console.info('plus result is:' + JSON.stringify(ret.result));
+            this.cate_name=ret.result.garbage_info[0].cate_name;
+            this.ps=ret.result.garbage_info[0].ps;
+            this.confidence=ret.result.garbage_info[0].confidence;
+            console.info("the answer "+ this.cate_name+"    "+ this.ps+"   "+this.confidence);
+            if(this.cate_name==garbage2){
+                this.photo_uri="common/images/garbage_2.png";
+                console.info('message:' + this.cate_name);
+            }
+            else if(this.cate_name==garbage3) {
+                this.photo_uri="common/images/garbage_3.png";
+                this.cate_name="厨余垃圾";
+                console.info('message:' + this.cate_name);
+            }
+            else if(this.cate_name==garbage4) {
+                this.photo_uri="common/images/garbage_4.png";
+                this.cate_name="其他垃圾";
+                console.info('message:' + this.cate_name);
+            }
+        } else {
+            console.error('plus error code:' + JSON.stringify(ret.code));
+        }
+        console.info("end!!!");
+    },
 }

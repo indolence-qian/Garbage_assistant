@@ -1,6 +1,7 @@
 package com.indolence.garbage_assistant;
 
 // ohos相关接口包
+import com.alibaba.fastjson.JSONObject;
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.ability.DataAbilityHelper;
 import ohos.aafwk.ability.DataAbilityRemoteException;
@@ -9,6 +10,7 @@ import ohos.aafwk.content.Operation;
 import ohos.agp.components.ComponentProvider;
 import ohos.agp.components.Image;
 import ohos.app.Context;
+import ohos.bundle.IBundleManager;
 import ohos.data.dataability.DataAbilityPredicates;
 import ohos.data.resultset.ResultSet;
 import ohos.hiviewdfx.HiLog;
@@ -21,15 +23,20 @@ import ohos.rpc.IRemoteObject;
 import ohos.rpc.RemoteObject;
 import ohos.rpc.MessageParcel;
 import ohos.rpc.MessageOption;
+import ohos.security.SystemPermission;
 import ohos.utils.net.Uri;
+import ohos.utils.system.SystemCapability;
 import ohos.utils.zson.ZSONObject;
 
-import java.io.File;
-import java.io.FileDescriptor;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import com.alibaba.fastjson.JSON;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.security.MessageDigest;
+import java.util.*;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class DataAbility extends Ability {
     private static final int imgRequestCode = 101;
@@ -38,6 +45,8 @@ public class DataAbility extends Ability {
     private static final HiLogLabel LABEL = new HiLogLabel(HiLog.LOG_APP, 0, "MY_TAG");
 
     private MyRemote remote = new MyRemote();
+    private Logger LogUtil;
+
     // FA在请求PA服务时会调用Ability.connectAbility连接PA，连接成功后，需要在onConnect返回一个remote对象，供FA向PA发送消息
     @Override
     protected IRemoteObject onConnect(Intent intent) {
@@ -49,6 +58,7 @@ public class DataAbility extends Ability {
         private static final int ERROR = 1;
         private static final int PLUS = 1001;
         private static final int PUSH = 10001;
+        private static final int BASE = 64;
 
         MyRemote() {
             super("MyService_MyRemote");
@@ -63,8 +73,7 @@ public class DataAbility extends Ability {
                     result.put("code", SUCCESS);
                     result.put("abilityResult", res);
                     reply.writeString(ZSONObject.toZSONString(result));
-
-
+                    HiLog.info(LABEL,"hahahahahhahahah   "+reply);
                     // String[] permission = {"ohos.permission.READ_USER_STORAGE"};
                     //MainAbility.mActivity.requestPermissionsFromUser(permission, 0);
                   //  Intent intent = new Intent();
@@ -78,6 +87,49 @@ public class DataAbility extends Ability {
                 }
                 case PUSH: {
 
+                }
+                case BASE: {
+
+                    String dataStr = data.readString();
+                    requestDistributedPermission(MainAbility.mActivity.getContext());
+                    DataAbilityHelper helper = DataAbilityHelper.creator(MainAbility.mActivity.getContext());
+                    Uri uri = Uri.parse(dataStr);
+                    HiLog.info(LABEL,"hahahahahhahahah   "+uri);
+                    FileInputStream inputStream = null;
+                    try {
+                        inputStream = new FileInputStream(helper.openFile(uri, "r"));
+                    } catch (FileNotFoundException | DataAbilityRemoteException e) {
+                        e.printStackTrace();
+                        //LogUtil.info("WRYCHH", "Exception " + e.getMessage());
+                    }
+                    byte[] bytes = readInputStream(inputStream);
+                    String picData = Base64.getEncoder().encodeToString(bytes);
+//                    ZSONObject zsonObject = new ZSONObject();
+//                    ZSONObject body = new ZSONObject();
+//                    body.put("index", "0");
+//                    body.put("pic", "data:image/png;base64," + picData);
+//                    body.put("type", "11");
+//                    body.toString();
+//                    zsonObject.put(HttpUtil.BODY, body);
+//                    zsonObject.put(HttpUtil.PATH_KEY, "api/pictures/base64");
+//                    HttpUtil.httpPost(zsonObject);
+
+                    Date time = new Date();
+                    String hashStr=MD5Utils.stringToMD5("0cfe3897c87c64ffe3c3de05f44ad145"+time.getTime());
+                    String result = sendPostJson("https://aiapi.jd.com/jdai/garbageImageSearch?appkey=4019e6bfb68a7c0a52e83d10e68e16a2&timestamp="+time.getTime()+"&sign="+hashStr,picData);
+
+
+                    reply.writeString(result);
+                    break;
+//                    Base64Util base=new Base64Util();
+//                    String dataStr = data.readString();
+//                    HiLog.info(LABEL,"hahahahahhahahah   "+dataStr);
+//                    String baseStr =base.imageUrlToBase64(dataStr);
+//                    HiLog.info(LABEL,"hahahahahhahahah   "+baseStr);
+//                    Map<String, Object> result = new HashMap<>();
+//                    result.put("code", SUCCESS);
+//                    result.put("baseStr", baseStr);
+//                    reply.writeString(ZSONObject.toZSONString(result));
                 }
                 default: {
                     Map<String, Object> result = new HashMap<String, Object>();
@@ -126,6 +178,108 @@ public class DataAbility extends Ability {
         return imgUrlList;
 
     }
+
+    public static String sendPostJson( String target,String data) {
+        HiLog.info(LABEL,"nono  "+target);
+        String httpresult = null;
+        try{
+            //1.设置请求的网址
+            URL url = new URL(target);
+            //2.获取连接
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            //3.设置请求方法
+            conn.setRequestMethod("POST");
+            //设置连接超时时间
+            conn.setConnectTimeout(1000 * 60);
+            //设置读取超时时间
+            conn.setReadTimeout(1000 * 60);
+            //设置请求头
+            conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
+            //允许写出
+            conn.setDoOutput(true);
+            //允许读入
+            conn.setDoInput(true);
+            conn.connect();
+
+            try (PrintWriter writer = new PrintWriter(conn.getOutputStream())) {
+                Map<String, String> foo = new HashMap<>();
+                foo.put("imgBase64", data);
+                foo.put("cityId", "310000");
+                writer.write(JSONObject.toJSONString(foo));
+                writer.flush();
+            }
+
+            if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                InputStream inStream=conn.getInputStream();
+                //将读入内容转换成字符串
+                httpresult = new String(readInputStream(inStream), "UTF-8");
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        HiLog.info(LABEL,"  no  "+ httpresult);
+        return httpresult;
+    }
+
+    //读取输入流
+    private static byte[] readInputStream(InputStream inputStream) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int length = -1;
+        try {
+            while ((length = inputStream.read(buffer)) != -1) {
+                baos.write(buffer, 0, length);
+            }
+            baos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        byte[] data = baos.toByteArray();
+        try {
+            inputStream.close();
+            baos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    // 向用户申请相关权限的授权
+    public static boolean requestDistributedPermission(Context context) {
+        String[] permissions = {
+                SystemPermission.READ_MEDIA,
+        };
+        List<String> permissionList = Arrays.stream(permissions)
+                .filter(permission -> context.verifySelfPermission(permission) != IBundleManager.PERMISSION_GRANTED)
+                .collect(Collectors.toList());
+        if (permissionList.isEmpty()) {
+            return true;
+        }
+        // 向用户申请相关权限的授权
+        context.requestPermissionsFromUser(permissionList.toArray(new String[permissionList.size()]),
+                0);
+        return false;
+    }
+
+
+    public static String getImageStr(String imgFile) {
+        InputStream inputStream = null;
+        byte[] data = null;
+        try {
+            inputStream = new FileInputStream(imgFile);
+            data = new byte[inputStream.available()];
+            inputStream.read(data);
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 加密
+        Base64.Encoder encoder = Base64.getEncoder();
+        return encoder.encodeToString(data);
+    }
+
+
     /*选择图片回调*/
     @Override
     protected void onAbilityResult(int requestCode, int resultCode, Intent resultData) {
@@ -169,4 +323,5 @@ public class DataAbility extends Ability {
     }
 
 }
+
 
