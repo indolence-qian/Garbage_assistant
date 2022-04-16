@@ -150,11 +150,24 @@
 }
 
 .home_1_2_2 {
-    height: 400px;
-    width: 400px;
+    height: 280px;
+    width: 200px;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+.linshi {
+    height: 320px;
+    flex-direction: row;
+    align-self: flex-end;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.img_00 {
+    height: 280px;
+    width: 200px;
 }
 
 .mine_0_2 {

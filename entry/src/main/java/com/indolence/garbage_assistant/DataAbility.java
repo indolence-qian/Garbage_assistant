@@ -32,11 +32,19 @@ import java.io.*;
 import com.alibaba.fastjson.JSON;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+import javax.imageio.*;
+import java.util.Arrays;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class DataAbility extends Ability {
     private static final int imgRequestCode = 101;
@@ -45,7 +53,6 @@ public class DataAbility extends Ability {
     private static final HiLogLabel LABEL = new HiLogLabel(HiLog.LOG_APP, 0, "MY_TAG");
 
     private MyRemote remote = new MyRemote();
-    private Logger LogUtil;
 
     // FA在请求PA服务时会调用Ability.connectAbility连接PA，连接成功后，需要在onConnect返回一个remote对象，供FA向PA发送消息
     @Override
@@ -86,11 +93,7 @@ public class DataAbility extends Ability {
                     break;
                 }
                 case PUSH: {
-
-                }
-                case BASE: {
-
-                    String dataStr = data.readString();
+                    String dataStr=data.readString();
                     requestDistributedPermission(MainAbility.mActivity.getContext());
                     DataAbilityHelper helper = DataAbilityHelper.creator(MainAbility.mActivity.getContext());
                     Uri uri = Uri.parse(dataStr);
@@ -102,7 +105,27 @@ public class DataAbility extends Ability {
                         e.printStackTrace();
                         //LogUtil.info("WRYCHH", "Exception " + e.getMessage());
                     }
+                    String result = sendPUTJson(inputStream);
+                    reply.writeString(result);
+                }
+                case BASE: {
+
+                    String dataStr = data.readString();
+                    HiLog.info(LABEL,"message: "+dataStr);
+                    requestDistributedPermission(MainAbility.mActivity.getContext());
+                    DataAbilityHelper helper = DataAbilityHelper.creator(MainAbility.mActivity.getContext());
+                    Uri uri = Uri.parse(dataStr);
+                    HiLog.info(LABEL,"hahahahahhahahah   "+uri);
+                    FileInputStream inputStream = null;
+                    try {
+                        inputStream = new FileInputStream(helper.openFile(uri, "r"));
+                    } catch (FileNotFoundException | DataAbilityRemoteException e) {
+                        e.printStackTrace();
+                        //LogUtil.info("WRYCHH", "Exception " + e.getMessage());
+                    }
+
                     byte[] bytes = readInputStream(inputStream);
+                    HiLog.info(LABEL,"bytes  =  "+bytes);
                     String picData = Base64.getEncoder().encodeToString(bytes);
 //                    ZSONObject zsonObject = new ZSONObject();
 //                    ZSONObject body = new ZSONObject();
@@ -178,7 +201,7 @@ public class DataAbility extends Ability {
         return imgUrlList;
 
     }
-
+    //发送POST请求
     public static String sendPostJson( String target,String data) {
         HiLog.info(LABEL,"nono  "+target);
         String httpresult = null;
@@ -221,6 +244,54 @@ public class DataAbility extends Ability {
         HiLog.info(LABEL,"  no  "+ httpresult);
         return httpresult;
     }
+
+
+    //发送PUT请求
+    public static String sendPUTJson(FileInputStream inputStream) {
+        Date time = new Date();
+        byte[] bytes = readInputStream(inputStream);
+        String httpresult = null;
+        try{
+            //1.设置请求的网址
+            URL url = new URL( "https://api2.bmob.cn/2/files/"+time.getTime()+".jpg");
+            //2.获取连接
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            //3.设置请求方法
+            conn.setRequestMethod("POST");
+            //设置连接超时时间
+            conn.setConnectTimeout(1000 * 60);
+            //设置读取超时时间
+            conn.setReadTimeout(1000 * 60);
+            //设置请求头
+            conn.setRequestProperty("Content-Type", "image/jpeg");
+            conn.setRequestProperty("X-Bmob-Application-Id","1f2dd70b89cd3c240cb1afaf361fe41b");
+            conn.setRequestProperty("X-Bmob-REST-API-Key","9702909da94801b56e9d488842516bb3");
+            //允许写出
+            conn.setDoOutput(true);
+            //允许读入
+            conn.setDoInput(true);
+            // 发送请求参数
+            DataOutputStream dos=new DataOutputStream(conn.getOutputStream());
+            dos.write(bytes);
+
+            // flush输出流的缓冲
+            dos.flush();
+
+            if(conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                InputStream inStream=conn.getInputStream();
+                //将读入内容转换成字符串
+                httpresult = new String(readInputStream(inStream), "UTF-8");
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        HiLog.info(LABEL,"  no  "+ httpresult);
+        return httpresult;
+    }
+
+
+
 
     //读取输入流
     private static byte[] readInputStream(InputStream inputStream) {

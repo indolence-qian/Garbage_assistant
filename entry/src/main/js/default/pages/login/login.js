@@ -85,21 +85,4 @@ export default {
             prompt.showToast({ message: "输入不能为空" });
         }
     },
-    plus: async function () {
-        var actionData = "internal://cache/photo.jpg";
-        var action = {};
-        action.bundleName = 'com.indolence.garbage_assistant';
-        action.abilityName = 'com.indolence.garbage_assistant.DataAbility';
-        action.messageCode = 10001;
-        action.data=actionData;
-        action.abilityType = ABILITY_TYPE_EXTERNAL;
-        action.syncOption = ACTION_SYNC;
-        var result = await FeatureAbility.callAbility(action);
-        var ret = JSON.parse(result);
-        if (ret.code == 0) {
-            console.info('plus result is:' + JSON.stringify(ret.abilityResult));
-        } else {
-            console.error('plus error code:' + JSON.stringify(ret.code));
-        }
-    },
 }

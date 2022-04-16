@@ -3,6 +3,7 @@
     <div class="div_1">
         <text class="text_4">识别结果</text>
         <div class="div_2">
+            <text class="text_00">{{garbage_name}}</text>
             <div class="div_0">
                 <text class="text_5">{{ cate_name }}</text>
                 <image class="img_2" src="{{ photo_uri }}"></image>

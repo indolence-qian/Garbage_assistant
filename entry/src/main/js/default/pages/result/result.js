@@ -18,6 +18,7 @@ export default {
         cate_name: "可回收物",
         ps: "参考样例",
         photo_uri: "common/images/garbage_1.png",
+        garbage_name: "垃圾",
         confidence: 0,
     },
     onInit() {
@@ -96,6 +97,7 @@ export default {
             this.cate_name=ret.result.garbage_info[0].cate_name;
             this.ps=ret.result.garbage_info[0].ps;
             this.confidence=ret.result.garbage_info[0].confidence;
+            this.garbage_name=ret.result.garbage_info[0].garbage_name;
             console.info("the answer "+ this.cate_name+"    "+ this.ps+"   "+this.confidence);
             if(this.cate_name==garbage2){
                 this.photo_uri="common/images/garbage_2.png";

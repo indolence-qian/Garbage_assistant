@@ -16,7 +16,7 @@ export default {
     },
     onInit() {
         this.avatar=this.$app.$def.data.photo;
-      if(this.username=="未登录") this.username=this.$app.$def.data.username;
+        if(this.username=="未登录") this.username=this.$app.$def.data.username;
     },
     to_home() {
         router.clear();
