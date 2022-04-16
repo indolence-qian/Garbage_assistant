@@ -55,6 +55,12 @@ export default {
                 this.$app.$def.data.email = obj.email;
                 this.$app.$def.data.sessionToken = obj.sessionToken;
                 this.$app.$def.data.objectId = obj.objectId;
+                try
+                {
+                    this.$app.$def.data.photo=obj.photo.url;
+                }catch{
+                    this.$app.$def.data.photo="common/images/more.png";
+                }
                 console.info('sessionToken:' + obj.sessionToken);
                 console.info('code:' + data.responseCode);
                 // data.header为http响应头，可根据业务需要进行解析
