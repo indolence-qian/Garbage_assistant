@@ -6,13 +6,12 @@ export default {
         text: ""
     },
     to_mine() {
-        router.clear();
-        router.push ({
+        router.replace ({
             uri: 'pages/mine/mine',
         });
     },
     to_guide() {
-        router.push({
+        router.replace({
             uri: 'pages/guide/guide',
         });
     },
