@@ -4,13 +4,13 @@ apply plugin: 'com.huawei.ohos.decctest'
 ohos {
     signingConfigs {
         debug {
-            storeFile file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p12')
-            storePassword '0000001807BCCA481537AB1368F14CB29713589EC2D92F62CEFDBA05A84A4D503479444F25A6D496'
+            storeFile file('C:\\Users\\RayJin\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p12')
+            storePassword '000000184359EDBC628E8661925A88B949D724C42E405104EDE5F5A613301AE4E3003037B06F6114'
             keyAlias = 'debugKey'
-            keyPassword '0000001840DC7C9C232AB88C0C123DF07E1B46BDE2E86C9ABD428DF3F367FAD84DDA6C3A73359A43'
+            keyPassword '00000018C1BB92080A69979C92986AA404ACE58CB0450DC34665B2772CC7599D5A1296711F669AB1'
             signAlg = 'SHA256withECDSA'
-            profile file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p7b')
-            certpath file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.cer')
+            profile file('C:\\Users\\RayJin\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p7b')
+            certpath file('C:\\Users\\RayJin\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.cer')
         }
     }
     compileSdkVersion 6

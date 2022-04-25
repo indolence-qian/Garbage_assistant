@@ -4,12 +4,12 @@ export default {
         title: 'World',
     },
     to_home() {
-        router.push ({
+        router.replace ({
             uri: 'pages/home/home',
         });
     },
     to_mine() {
-        router.push ({
+        router.replace ({
             uri: 'pages/mine/mine',
         });
     }

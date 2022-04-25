@@ -1,6 +1,8 @@
 import file from '@system.file';
 import router from '@system.router';
 import prompt from '@system.prompt';
+import dataStorage from '@ohos.data.storage'
+import featureAbility from '@ohos.ability.featureAbility'
 import http from '@ohos.net.http';
 export default {
     data: {
@@ -49,7 +51,20 @@ export default {
             }, (err, data) => {
             if (!err) {
                 // data.result为http响应内容，可根据业务需要进行解析
-                console.info('Result:' + data.result);
+                //console.info('Result:' + data.result);
+                var context = featureAbility.getContext()
+                context.getFilesDir((err, path) => {
+                    if (err) {
+                        console.error('getFilesDir failed. err: ' + JSON.stringify(err));
+                        return;
+                    }
+                    console.info('getFilesDir successful. path:' + JSON.stringify(path));
+                    let storage = dataStorage.getStorageSync(path + '/User')
+                    storage.putSync('UserInfo', data.result)
+                    storage.flushSync()
+                });
+
+
                 var obj = JSON.parse(data.result);
                 this.$app.$def.data.username = obj.username;
                 this.$app.$def.data.email = obj.email;
@@ -73,7 +88,7 @@ export default {
                 prompt.showToast({
                     message: '登录成功'
                 });
-                router.push({
+                router.replace({
                     uri: 'pages/home/home',
                 });
             }

@@ -1,7 +1,9 @@
 import pasteboard from '@ohos.pasteboard';
 import router from '@system.router';
+import featureAbility from '@ohos.ability.featureAbility';
 import document from '@ohos.document';
 import prompt from '@system.prompt';
+import wantConstant from '@ohos.ability.wantConstant';
 // abilityType: 0-Ability; 1-Internal Ability
 const ABILITY_TYPE_EXTERNAL = 0;
 const ABILITY_TYPE_INTERNAL = 1;
@@ -19,13 +21,12 @@ export default {
         if(this.username=="未登录") this.username=this.$app.$def.data.username;
     },
     to_home() {
-        router.clear();
-        router.push ({
+        router.replace ({
             uri: 'pages/home/home',
         });
     },
     to_guide() {
-        router.push ({
+        router.replace ({
             uri: 'pages/guide/guide',
         });
     },
@@ -44,6 +45,18 @@ export default {
     },
     change_photo()
     {
+//        var str = {
+//            "want": {
+//                "action": wantConstant.Action.ACTION_CHOOSE,
+//            },
+//        };
+//        featureAbility.startAbility(str, (err, data) => {
+//            if (err) {
+//                console.error('Operation failed. Cause:' + JSON.stringify(err));
+//                return;
+//            }
+//            console.info('Operation successful. Data: ' + JSON.stringify(data))
+//        });
         this.plus();
     },
     plus: async function () {
