@@ -1,11 +1,8 @@
 <div class="container">
-    <stack>
-        <div class="container-img">
-            <image src="/common/ic_default_image@3x.png" class="bg-img"></image>
-        </div>
-        <div class="container-inner">
-            <text class="title">{{ $t('strings.title') }}</text>
-            <text class="detail_text" onclick="routerEvent">{{ $t('strings.detail') }}</text>
-        </div>
-    </stack>
+    <div class="div_1" onclick="routerEvent">
+        <image class="img_1" src="common/xiangji.png"></image>
+    </div>>
+    <div class="div_2" onclick="routerEvent">
+        <image class="img_2" src="common/attention.png"></image>
+    </div>
 </div>

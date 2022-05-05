@@ -80,7 +80,6 @@ public class DataAbility extends Ability {
                     result.put("code", SUCCESS);
                     result.put("abilityResult", res);
                     reply.writeString(ZSONObject.toZSONString(result));
-                    HiLog.info(LABEL,"hahahahahhahahah   "+reply);
                     // String[] permission = {"ohos.permission.READ_USER_STORAGE"};
                     //MainAbility.mActivity.requestPermissionsFromUser(permission, 0);
                   //  Intent intent = new Intent();
@@ -97,7 +96,6 @@ public class DataAbility extends Ability {
                     requestDistributedPermission(MainAbility.mActivity.getContext());
                     DataAbilityHelper helper = DataAbilityHelper.creator(MainAbility.mActivity.getContext());
                     Uri uri = Uri.parse(dataStr);
-                    HiLog.info(LABEL,"hahahahahhahahah   "+uri);
                     FileInputStream inputStream = null;
                     try {
                         inputStream = new FileInputStream(helper.openFile(uri, "r"));
@@ -184,7 +182,6 @@ public class DataAbility extends Ability {
             ResultSet result = helper.query(AVStorage.Images.Media.EXTERNAL_DATA_ABILITY_URI,  new String[]{AVStorage.Images.Media.ID}, null);
             HiLog.info(LABEL,"选择图片get :"+result);
             HiLog.info(LABEL,"选择图片get1 :"+ result.goToNextRow());
-
             if (result == null) {
                 return imgUrlList;
             }
@@ -196,10 +193,9 @@ public class DataAbility extends Ability {
             }
             result.close();
         } catch (DataAbilityRemoteException e) {
-            // ...
+
         }
         return imgUrlList;
-
     }
     //发送POST请求
     public static String sendPostJson( String target,String data) {

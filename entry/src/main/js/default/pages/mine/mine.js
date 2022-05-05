@@ -60,14 +60,14 @@ export default {
         this.plus();
     },
     plus: async function () {
-        var action = {};
+        var action = {};//添加数据action
         action.bundleName = 'com.indolence.garbage_assistant';
         action.abilityName = 'com.indolence.garbage_assistant.DataAbility';
         action.messageCode = ACTION_MESSAGE_CODE_PLUS;
         action.abilityType = ABILITY_TYPE_EXTERNAL;
         action.syncOption = ACTION_SYNC;
-        var result = await FeatureAbility.callAbility(action);
-        var ret = JSON.parse(result);
+        var result = await FeatureAbility.callAbility(action);//异步调用java端文件并返回result
+        var ret = JSON.parse(result);//解析json语句，获得结果
         if (ret.code == 0) {
             //console.info('plus result is:' + JSON.stringify(ret.abilityResult));
             //console.info('plus result is1:' +ret.abilityResult[0]);
@@ -83,9 +83,9 @@ export default {
         }
     },
     share() {
-        var pasteData = pasteboard.createPlainTextData("https://github.com/indolence-qian/Garbage_assistant");
-        var systemPasteboard = pasteboard.getSystemPasteboard();
-        systemPasteboard.setPasteData(pasteData).then((data) => {
+        var pasteData = pasteboard.createPlainTextData("https://github.com/indolence-qian/Garbage_assistant");//粘贴信息
+        var systemPasteboard = pasteboard.getSystemPasteboard();//获取剪切板权限
+        systemPasteboard.setPasteData(pasteData).then((data) => {//将输入写入并提示用户
             console.info('setPasteData success.');
             prompt.showToast({
                 message:"内容已复制到剪切板，去浏览器粘贴浏览吧！",
