@@ -18,7 +18,7 @@
             </div>
             <text class="text_1_2">·观察模式</text>
             <div class="home_1_2_2">
-                <div class="home_1_2_1_2">-->
+                <div class="home_1_2_1_2" onclick="attention">-->
                     <image class="img_1_2" src="common/images/attention.png"></image>-->
                 </div>-->
                 <image class="img_2_2" src="common/images/woman-search.png"></image>-->

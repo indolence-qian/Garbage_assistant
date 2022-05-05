@@ -13,6 +13,15 @@ ohos {
             profile file('D:\\key\\Garbage_assistantRelease.p7b')
             certpath file('D:\\key\\Garbage_assistant.cer')
         }
+        debug {
+            storeFile file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p12')
+            storePassword '00000018983AB59E54DE7BA2DAF47E316BDD14BBC8E545513CAD300D5E4C1FCD2DDF1F4C670C3F22'
+            keyAlias = 'debugKey'
+            keyPassword '000000180CED2E0A681486A685E85091BC7902AC3521D0B8E0C468DB4706FB68296EB5AD31E7833C'
+            signAlg = 'SHA256withECDSA'
+            profile file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p7b')
+            certpath file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.cer')
+        }
     }
     compileSdkVersion 6
     defaultConfig {
