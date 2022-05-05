@@ -5,9 +5,9 @@ ohos {
     signingConfigs {
         debug {
             storeFile file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p12')
-            storePassword '00000018A7473B994DB7B22A3293474B0826F8BC4BAFC837583FBF8EEFA44847544D7DE51FFA6304'
+            storePassword '0000001830CA0345AFEB0F6C303A7B692FA7C71B9EEA15B134005F0818CD297B65B8CF28A47112F8'
             keyAlias = 'debugKey'
-            keyPassword '000000181B0C924608C7CEBCF2B4A4E4A1C1DEC782F205E2DC4D11C7586E9DC120945C89BE2751CE'
+            keyPassword '0000001812BF7DC988FDCBD2AC535BB93D567C5586EFCAE402008E0BD80623D501530AFE87626E1A'
             signAlg = 'SHA256withECDSA'
             profile file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p7b')
             certpath file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.cer')

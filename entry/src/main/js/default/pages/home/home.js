@@ -23,6 +23,9 @@ export default {
     input(e) {
         this.text=e.value;
     },
+    attention() {
+      prompt.showToast({message:"正在开发中~~~~~"});
+    },
     search(e) {
         let reg = /^[\u4E00-\u9FA5]+$/;
         if(reg.test(e.value))
