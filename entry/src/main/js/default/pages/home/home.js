@@ -24,11 +24,18 @@ export default {
         this.text=e.value;
     },
     search(e) {
-        router.push ({
-            uri: 'pages/text_search/text_search',
-            params:{
-                query_text: this.text,
-            }
-        })
+        let reg = /^[\u4E00-\u9FA5]+$/;
+        if(reg.test(e.value))
+        {
+            router.push ({
+                uri: 'pages/text_search/text_search',
+                params:{
+                    query_text: this.text,
+                }
+            })
+        }
+        else {
+            prompt.showToast({message:"非法字符！"});
+        }
     }
 }

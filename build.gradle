@@ -4,14 +4,14 @@ apply plugin: 'com.huawei.ohos.app'
 //For instructions on signature configuration, see https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#ZH-CN_TOPIC_0000001154985555__section1112183053510
 ohos {
     signingConfigs {
-        debug {
-            storeFile file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p12')
-            storePassword '00000018A11C00D44B020D0467FE35FC5CCBF5E9D840108EC42FADB3D427202C2A64723F01FC9B25'
-            keyAlias = 'debugKey'
-            keyPassword '0000001847DA692FD07FC47F63A63CC08CA9BC566FAD91B7DB8F4E306712C183DDC1CF2D4489E127'
+        release {
+            storeFile file('D:\\key\\Garbage_assistant.p12')
+            storePassword '0000001A8BE9F119DA95D51EB96B9B958A010F30A6FDFE70E1355EB7563B6FD93DEC5F97DCC1D17EBB1F'
+            keyAlias = 'Garbage_assistant'
+            keyPassword '0000001A6DA6C27C2B7FAF3A602CB9578FA332FE2992C268E6F931BEDD200FE6088D17AC3B5764980E94'
             signAlg = 'SHA256withECDSA'
-            profile file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.p7b')
-            certpath file('C:\\Users\\qfg\\.ohos\\config\\auto_debug_garbage_assistant_2850086000389422904.cer')
+            profile file('D:\\key\\Garbage_assistantRelease.p7b')
+            certpath file('D:\\key\\Garbage_assistant.cer')
         }
     }
     compileSdkVersion 6
