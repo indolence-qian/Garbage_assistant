@@ -8,7 +8,7 @@
     "routerEvent": {
       "action": "router",
       "bundleName": "com.indolence.garbage_assistant",
-      "abilityName": "com.indolence.garbage_assistant.widget.FormAbility",
+      "abilityName": "com.indolence.garbage_assistant.CardRouter",
       "params": {
         "message": "add detail"
       }

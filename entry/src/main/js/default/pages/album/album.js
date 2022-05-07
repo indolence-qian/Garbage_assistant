@@ -1,6 +1,8 @@
 import file from '@system.file';
 import prompt from '@system.prompt';
 import router from '@system.router';
+import dataStorage from '@ohos.data.storage'
+import featureAbility from '@ohos.ability.featureAbility'
 import http from '@ohos.net.http';
 const ABILITY_TYPE_EXTERNAL = 0;
 const ABILITY_TYPE_INTERNAL = 1;
@@ -12,7 +14,8 @@ export default {
     data: {
         title: 'World',
         album_array: [],
-        uri: ""
+        uri: "",
+        test: ''
     },
     onInit() {
         console.info('plus result is:' + JSON.stringify(this.$app.$def.data.album_array));
@@ -34,6 +37,21 @@ export default {
             prompt.showToast({message:"正在上传数据......."});
             this.$app.$def.data.photo=this.uri;
             this.plus();
+            var context = featureAbility.getContext()
+            context.getFilesDir((err, path) => {
+                if (err) {
+                    console.error('getFilesDir failed. err: ' + JSON.stringify(err));
+                    return;
+                }
+                console.info('getFilesDir successful. path:' + JSON.stringify(path));
+                let storage = dataStorage.getStorageSync(path + '/User')
+                this.test=storage.getSync('UserInfo', '');
+                var obj = JSON.parse(this.test);
+                obj.photo.url=this.uri;
+                this.test = JSON.stringify(obj);
+                storage.putSync('UserInfo', this.test);
+                storage.flushSync()
+            });
             prompt.showToast({message:"上传成功！"});
             router.clear();
             router.push({

@@ -3,7 +3,7 @@ import prompt from '@system.prompt';
 export default {
     data: {
         title: 'World',
-        text: ""
+        text: "",
     },
     to_mine() {
         router.replace ({
@@ -27,18 +27,11 @@ export default {
       prompt.showToast({message:"正在开发中~~~~~"});
     },
     search(e) {
-        let reg = /^[\u4E00-\u9FA5]+$/;
-        if(reg.test(e.value))
-        {
-            router.push ({
-                uri: 'pages/text_search/text_search',
-                params:{
-                    query_text: this.text,
-                }
-            })
-        }
-        else {
-            prompt.showToast({message:"非法字符！"});
-        }
+        router.push ({
+            uri: 'pages/text_search/text_search',
+            params:{
+                query_text: this.text,
+            }
+        })
     }
 }

@@ -16,7 +16,7 @@ export default {
         username: "未登录",
         avatar: "",
     },
-    onInit() {
+    onShow() {
         this.avatar=this.$app.$def.data.photo;
         if(this.username=="未登录") this.username=this.$app.$def.data.username;
     },
@@ -69,9 +69,9 @@ export default {
         var result = await FeatureAbility.callAbility(action);//异步调用java端文件并返回result
         var ret = JSON.parse(result);//解析json语句，获得结果
         if (ret.code == 0) {
-            //console.info('plus result is:' + JSON.stringify(ret.abilityResult));
-            //console.info('plus result is1:' +ret.abilityResult[0]);
-            //this.avatar=ret.abilityResult[0];
+            console.info('plus result is:' + JSON.stringify(ret.abilityResult));
+            console.info('plus result is1:' +ret.abilityResult[0]);
+            this.avatar=ret.abilityResult[0];
             if(ret.abilityResult.length>0) {
                 this.$app.$def.data.album_array = ret.abilityResult;
                 router.push({
