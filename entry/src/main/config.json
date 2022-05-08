@@ -63,6 +63,21 @@
         "visible": true
       },
       {
+        "name": "com.indolence.garbage_assistant.CardRouter",
+        "type": "page",
+        "visible": true
+      },
+      {
+        "name": "com.indolence.garbage_assistant.FormAbility",
+        "type": "service",
+        "visible": true
+      },
+      {
+        "name": "com.indolence.garbage_assistant.CodecAbility",
+        "type": "page",
+        "visible": true
+      },
+      {
         "visible": true,
         "metaData": {
           "customizeData": [

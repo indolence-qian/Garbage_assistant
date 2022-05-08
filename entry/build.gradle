@@ -30,7 +30,7 @@ ohos {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar', '*.har', '*.min.js'])
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.har', '*.min.js' , '*.so'])
     implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.79'
     testImplementation 'junit:junit:4.13'
     ohosTestImplementation 'com.huawei.ohos.testkit:runner:2.0.0.200'

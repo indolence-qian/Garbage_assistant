@@ -7,8 +7,14 @@
   "actions": {
     "routerEvent": {
       "action": "router",
-      "bundleName": "com.indolence.garbage_assistant",
       "abilityName": "com.indolence.garbage_assistant.CardRouter",
+      "params": {
+        "message": "add detail"
+      }
+    },
+    "cameraEvent": {
+      "action": "router",
+      "abilityName": "com.indolence.garbage_assistant.CodecAbility",
       "params": {
         "message": "add detail"
       }

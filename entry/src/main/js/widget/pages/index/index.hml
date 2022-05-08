@@ -1,9 +1,9 @@
 <div class="container">
-    <image src="common/tubiao.png"></image>
-<!--    <div class="div_1" onclick="routerEvent">-->
-<!--        <image class="img_1" src="common/xiangji.png"></image>-->
-<!--    </div>>-->
-<!--    <div class="div_2" onclick="routerEvent">-->
-<!--        <image class="img_2" src="common/attention.png"></image>-->
-<!--    </div>-->
+<!--    <image src="common/tubiao.png"></image>-->
+    <div class="div_1" onclick="routerEvent">
+        <image class="img_1" src="common/xiangji.png"></image>
+    </div>>
+    <div class="div_2" onclick="cameraEvent">
+        <image class="img_2" src="common/attention.png"></image>
+    </div>
 </div>
