@@ -25,6 +25,8 @@ export default {
     },
     attention() {
       prompt.showToast({message:"正在开发中~~~~~"});
+
+        this.jumpJavaAbility();
     },
     search(e) {
         router.push ({
@@ -33,5 +35,12 @@ export default {
                 query_text: this.text,
             }
         })
+    },
+    async jumpJavaAbility() {
+        var action = {};
+        action.bundleName = 'com.indolence.garbage_assistant';
+        action.abilityName = 'com.indolence.garbage_assistant.CodecAbility';
+        await FeatureAbility.startAbility(action);
     }
 }
+
